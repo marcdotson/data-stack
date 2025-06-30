@@ -1,13 +1,20 @@
 ---
-title: "ASC Training"
+title: "Data Stack"
 format: gfm
 ---
 
-This repository is a collection of training resources for students working on projects at the [Analytics Solutions Center](https://huntsman.usu.edu/asc/) (ASC). The ASC collaborates with sponsor organizations to provide students at the [Jon M. Huntsman School of Business](https://huntsman.usu.edu), and [Utah State University](https://www.usu.edu) at large, with real-world experiences working on data-related projects. Each ASC project is mentored by a faculty member from the [Data Analytics and Information Systems Department](https://huntsman.usu.edu/dais/). The following training is provided for students on projects that I mentor.
+This repository is a collection of tools and training for working on data analytics projects. The intended audience is students in my courses at the [Jon M. Huntsman School of Business](https://huntsman.usu.edu) at [Utah State University](https://www.usu.edu), students that I'm mentoring on projects at the [Analytics Solutions Center](https://huntsman.usu.edu/asc/) (ASC), and collaborators on research projects.
 
-## Python
+My recommended data stack consists of the following:
 
-Installing Python can be challenging, even for advanced users. As immortalized by xkcd:
+- [Python](#sec-python) for data wrangling, visualizations, and modeling.
+- [Positron](#sec-positron) for the integrated development environment (IDE).
+- [GitHub](#sec-github) for version control, project management, and collaboration.
+- [Quarto](#sec-quarto) for communicating results with presentations, reports, dashboards, etc.
+
+## [Python]{#sec-python}
+
+Installing Python can be challenging, even for advanced users. As immortalized by [xkcd](https://xkcd.com):
 
 <p align="center">
 <img src="figures/xkcd_python-env.png" width="400">
@@ -28,7 +35,7 @@ Remember how you shouldn't use the OS version of Python? Set the global default 
 
 There's a lot more that [pyenv can do](https://realpython.com/intro-to-pyenv/), but now you should be set to safely install and manage Python.
 
-## Positron
+## [Positron]{#sec-positron}
 
 An integrated development environment (IDE), outside of an open source language, is arguably your most important tool as a data analyst or data engineer. There are many options, but I recommend [Positron](https://positron.posit.co), a next-generation data science IDE. Built on VS Code's [open source core](https://github.com/microsoft/vscode), Positron combines the multilingual extensibility of [VS Code](https://code.visualstudio.com/) with essential data tools common to language-specific IDEs.
 
@@ -74,7 +81,7 @@ You can use the drop-down in the top right to select intepreters, including Pyth
 
 Including a question mark after most any command will open the help (in the right pane by default). This serves as a built-in browser to allow you to reference online documentation, including parameter definitions and examples you can copy and use.
 
-## GitHub
+## [GitHub]{#sec-github}
 
 Git is a powerful collaboration and [version control system](https://peerj.com/preprints/3159v2/). While it is the industry standard for software development, we can easily adopt this framework to provide structure for any kind of research, ASC projects included. GitHub is an online hosting service where each project lives in its own repository maintained by me as the mentor. After a project is completed, you can copy (i.e., *fork*) the project repository for you to maintain. Learning to use Git and GitHub not only aids in collaboration, it will ultimately allow you to develop an online portfolio of work.
 
@@ -161,7 +168,7 @@ When you've completed work on the issue associated with the branch, create a [*p
 
 Note that when a branch is deleted on GitHub, it will still exist in your cloned repository. This isn't necessarily a problem, though if you commit changes to a closed branch it will force the branch open again. Again, make sure you're working on the correct branch. Eventually you may want to clean up branches that have been merged into `main` and closed on GitHub by using `Git: Delete Branch...` via the command palette, followed by the branch name. You may also need to use `Git: Fetch` to prune tracking branches that are no longer on remote (i.e., on GitHub).
 
-## Quarto
+## [Quarto]{#sec-quarto}
 
 [Quarto](https://quarto.org) is an open-source publishing system where we can combine text along with code and its output. If you've used Jupyter notebooks, Quarto documents will be familiar. However, the most important difference is that the notebook format of a Quarto document is simply a means to and end. Quarto is built using a sophisticated tool called Pandoc that can take whatever we produce within the Quarto document and render it into a Word document, PowerPoint presentation, PDF, Revealjs slide deck, interactive dashboard, website, etc. Browse through the [gallery](https://quarto.org/docs/gallery/) to see what sort of things are possible.
 

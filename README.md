@@ -1,21 +1,29 @@
-# ASC Training
+# Data Stack
 
 
-This repository is a collection of training resources for students
-working on projects at the [Analytics Solutions
-Center](https://huntsman.usu.edu/asc/) (ASC). The ASC collaborates with
-sponsor organizations to provide students at the [Jon M. Huntsman School
-of Business](https://huntsman.usu.edu), and [Utah State
-University](https://www.usu.edu) at large, with real-world experiences
-working on data-related projects. Each ASC project is mentored by a
-faculty member from the [Data Analytics and Information Systems
-Department](https://huntsman.usu.edu/dais/). The following training is
-provided for students on projects that I mentor.
+This repository is a collection of tools and training for working on
+data analytics projects. The intended audience is students in my courses
+at the [Jon M. Huntsman School of Business](https://huntsman.usu.edu) at
+[Utah State University](https://www.usu.edu), students that I’m
+mentoring on projects at the [Analytics Solutions
+Center](https://huntsman.usu.edu/asc/) (ASC), and collaborators on
+research projects.
 
-## Python
+My recommended data stack consists of the following:
+
+- [Python](#sec-python) for data wrangling, visualizations, and
+  modeling.
+- [Positron](#sec-positron) for the integrated development environment
+  (IDE).
+- [GitHub](#sec-github) for version control, project management, and
+  collaboration.
+- [Quarto](#sec-quarto) for communicating results with presentations,
+  reports, dashboards, etc.
+
+## <span id="sec-python">Python</span>
 
 Installing Python can be challenging, even for advanced users. As
-immortalized by xkcd:
+immortalized by [xkcd](https://xkcd.com):
 
 <p align="center">
 <img src="figures/xkcd_python-env.png" width="400">
@@ -77,7 +85,7 @@ There’s a lot more that [pyenv can
 do](https://realpython.com/intro-to-pyenv/), but now you should be set
 to safely install and manage Python.
 
-## Positron
+## <span id="sec-positron">Positron</span>
 
 An integrated development environment (IDE), outside of an open source
 language, is arguably your most important tool as a data analyst or data
@@ -167,7 +175,7 @@ the right pane by default). This serves as a built-in browser to allow
 you to reference online documentation, including parameter definitions
 and examples you can copy and use.
 
-## GitHub
+## <span id="sec-github">GitHub</span>
 
 Git is a powerful collaboration and [version control
 system](https://peerj.com/preprints/3159v2/). While it is the industry
@@ -434,7 +442,7 @@ palette, followed by the branch name. You may also need to use
 `Git: Fetch` to prune tracking branches that are no longer on remote
 (i.e., on GitHub).
 
-## Quarto
+## <span id="sec-quarto">Quarto</span>
 
 [Quarto](https://quarto.org) is an open-source publishing system where
 we can combine text along with code and its output. If you’ve used
