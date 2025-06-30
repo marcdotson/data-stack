@@ -13,7 +13,7 @@ My recommended data stack consists of the following:
 
 - [Python](#sec-python) for data wrangling, visualizations, and
   modeling.
-- [Positron](#sec-positron) for the integrated development environment
+- [Positron](#sec-positron) as the integrated development environment
   (IDE).
 - [GitHub](#sec-github) for version control, project management, and
   collaboration.
@@ -75,6 +75,12 @@ start is the latest version of Python that has a stable release (i.e.,
 doesn’t have a `-dev` tag). For example, to install Python 3.12.4, run
 `pyenv install 3.12.4`.
 
+> [!TIP]
+>
+> ### R
+>
+> What about R?
+
 Remember how you shouldn’t use the OS version of Python? Set the global
 default version of Python that you’ll use (leaving the OS to do it’s own
 thing). For example, to set Python 3.12.4 as the global default version,
@@ -84,6 +90,12 @@ see an asterisk by the global default you specified.
 There’s a lot more that [pyenv can
 do](https://realpython.com/intro-to-pyenv/), but now you should be set
 to safely install and manage Python.
+
+> [!TIP]
+>
+> ### Polars and seaborn.objects
+>
+> Reference blog post?
 
 ## <span id="sec-positron">Positron</span>
 
@@ -167,6 +179,12 @@ including Python versions and other languages you have installed.
 
 <img src="figures/positron-05_interpreter-selection.png"
 style="width:90.0%" data-fig-align="center" />
+
+### Positron Assistant
+
+### Remote Explorer
+
+### Extensions
 
 ### Help
 
@@ -540,6 +558,16 @@ a flagged code block:
 
 Parameter values can then be referenced in the document (including code
 blocks) using the parameter name.
+
+### Figures
+
+### Tables
+
+> [!TIP]
+>
+> ### Great Tables
+>
+> Great Tables and Polars with `.style`?
 
 ### References
 
