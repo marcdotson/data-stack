@@ -33,6 +33,12 @@ Now that you have pyenv installed, you can install and manage all the versions o
 
 ::: {.callout-tip title="R"}
 What about R?
+
+Add a reproducible environment by creating a project library using the `{renv}` package.
+
+- Initialize the project library *once* using `renv::init()`.
+- Once you've installed packages, add them to the project library using `renv::snapshot()`.
+- If a project library already exists, install the associated packages with `renv::restore()`.
 :::
 
 Remember how you shouldn't use the OS version of Python? Set the global default version of Python that you'll use (leaving the OS to do it's own thing). For example, to set Python 3.12.4 as the global default version, run `pyenv global 3.12.4`. If you run `pyenv versions` again you should see an asterisk by the global default you specified.
