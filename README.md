@@ -1,24 +1,26 @@
 # Data Stack
 
 
-This repository is a collection of tools and training for working on
-data analytics projects. The intended audience is students in my courses
-at the [Jon M. Huntsman School of Business](https://huntsman.usu.edu) at
-[Utah State University](https://www.usu.edu), students that I’m
-mentoring on projects at the [Analytics Solutions
+This repository provides training for my recommended data stack, a
+collection of tools for working on data analytics projects. The intended
+audience is students in my courses at the [Jon M. Huntsman School of
+Business](https://huntsman.usu.edu) at [Utah State
+University](https://www.usu.edu), students that I’m mentoring on
+projects at the [Analytics Solutions
 Center](https://huntsman.usu.edu/asc/) (ASC), and collaborators on
 research projects.
 
 My recommended data stack consists of the following:
 
-- [Python](#sec-python) for data wrangling, visualizations, and
-  modeling.
+- [Python](#sec-python) for data wrangling, visualizations, and modeling
 - [Positron](#sec-positron) as the integrated development environment
-  (IDE).
+  (IDE)
 - [GitHub](#sec-github) for version control, project management, and
-  collaboration.
+  collaboration
 - [Quarto](#sec-quarto) for communicating results with presentations,
   reports, dashboards, etc.
+- [Copilot](#sec-copilot) for assisting with code development and data
+  analysis
 
 ## <span id="sec-python">Python</span>
 
@@ -26,78 +28,168 @@ Installing Python can be challenging, even for advanced users. As
 immortalized by [xkcd](https://xkcd.com):
 
 <p align="center">
+
 <img src="figures/xkcd_python-env.png" width="400">
 </p>
 
 Notably, Python comes pre-installed on some operating systems (OS). This
 version *should not be used* by anyone except the OS itself. For this
-and other reasons, we need the ability to maintain multiple versions of
-Python on the same computer. Python is a big tent, and there are many
+and other reasons, you’ll need the ability to maintain multiple versions
+of Python on the same computer. Python is a big tent, and there are many
 ways to install and maintain versions. I recommend using
-[pyenv](https://github.com/pyenv/pyenv), a Python version management
-tool that is designed to be as *simple* as possible, though what
-constitutes “simple” is a matter of experience and your mileage may
-vary.
+[uv](https://docs.astral.sh/uv/), a single unified tool for installing
+and managing both Python versions and project environments. Get started
+by [installing
+uv](https://docs.astral.sh/uv/getting-started/installation/) via the
+command line.
 
-> [!TIP]
+> [!NOTE]
 >
 > ### The Command Line
 >
-> Using pyenv will require you to use the command line (i.e., terminal
-> or shell). Be patient and *take your time* walking carefully through
-> the [installation
-> instructions](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation).
-> Daniel Chen, who introduced me to pyenv, also has a [great
-> write-up](https://chendaniely.github.io/python_setup/210-python_install.html)
-> of the installation instructions that may be a bit easier to follow. A
-> few things to help as you install:
+> If using the command line (i.e., terminal or shell) is new to you, be
+> patient, take your time, and follow instructions from a trusted source
+> closely. A few things that might help:
 >
 > - The command line is the programming interface into your OS itself.
 >   You don’t have to know everything about it to follow instructions.
-> - When you get to the section [Set up your shell environment for
->   pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#b-set-up-your-shell-environment-for-pyenv),
->   the instructions are different based on the *type* of command line.
+> - Instructions can be different based on the *type* of command line.
 >   If you’re on a Mac that’s running macOS Catalina 10.15.7 or later,
 >   the terminal is Zsh. If you’re using Linux, the shell is Bash (and
->   you probably already know that). And if you’re using Windows, you’ll
->   be using the [pyenv-win](https://github.com/pyenv-win/pyenv-win)
->   fork with PowerShell.
+>   you probably already know that). And if you’re using Windows you’re
+>   working with PowerShell.
 
-Now that you have pyenv installed, you can install and manage all the
-versions of Python on your computer. To see what versions you already
-have installed, on the command line, run `pyenv versions`. At first this
-is probably just the OS version. Note that if you’ve installed Python
-before pyenv, it won’t be listed: `pyenv versions` will only list the OS
-version and any additional versions you install using pyenv. To see all
-the available versions of Python that you can install, run
-`pyenv install --list`. This can be overwhelming, but a good place to
-start is the latest version of Python that has a stable release (i.e.,
-doesn’t have a `-dev` tag). For example, to install Python 3.12.4, run
-`pyenv install 3.12.4`.
+Once you have uv installed, it’s easy to install and manage Python
+versions.
+
+- To install the latest stable release of Python, on the command line,
+  run `uv python install`. To see which versions of Python you already
+  have installed, run `uv python find`; none of these will be the
+  off-limits OS version.
+- You can also install specific versions of Python, such as
+  `uv python install 3.13.4` to install Python 3.13.4. To view Python
+  versions that are available to install, run `uv python list`.
 
 > [!TIP]
 >
-> ### R
+> ### What about R and Julia?
 >
-> What about R?
-
-Remember how you shouldn’t use the OS version of Python? Set the global
-default version of Python that you’ll use (leaving the OS to do it’s own
-thing). For example, to set Python 3.12.4 as the global default version,
-run `pyenv global 3.12.4`. If you run `pyenv versions` again you should
-see an asterisk by the global default you specified.
-
-There’s a lot more that [pyenv can
-do](https://realpython.com/intro-to-pyenv/), but now you should be set
-to safely install and manage Python.
-
-> [!TIP]
+> Python might be the most commonly used open source programming
+> language for data wrangling, visualizations, and modeling – but it’s
+> not the only one. The three most popular languages for data analytics
+> are Julia, Python, and R (the Jupyter kernel was named for and
+> designed to support all three). Each language comes with its own
+> tradeoffs, culture, and overall vibe.
 >
-> ### Polars and seaborn.objects
+> - Julia is the newest and fastest and was developed by mathematicians.
+> - Python is the most popular and diverse in terms of libraries and
+>   applications and was developed by computer scientistis.
+> - R is the most narrowly focused on data analytics and culturally
+>   cohesive and was developed by statisticians.
 >
-> Reference blog post?
+> If you want to learn more than one of the three languages, and you
+> arguably should, I recommend focusing on becoming proficient in one
+> language first and then transferring that understanding to picking up
+> a second. For example, see [how I learned Python coming from a
+> background using
+> R](https://occasionaldivergences.com/posts/python-intro/).
+
+You can also use uv to manage project environments. A project
+environment is composed of the language(s) and libraries (including the
+dependencies) used for a given project. What makes a project environment
+reproducible is keeping track of which *version* of the language(s) and
+the libraries we’re using for a given project so that it can be easily
+reproduced on another machine by you (including future you) or someone
+else. You can set up your own project environment or use an existing
+one, like the one included when you use my [project
+template](https://github.com/marcdotson/project-template). If you aren’t
+using my project template, it’s still easy to set up and manage a
+project environment.
+
+- After navigating to a project working directory, run `uv init` to
+  initialize a project environment. This creates a `pyproject.toml` file
+  with metadata about the project and a hidden `.python-version` file
+  that specifies the default version of Python for the project. (It also
+  creates `main.py` and `README.md` files that you can use or delete.)
+- With the project environment initialized, you can install libraries.
+  For example, to install the Polars library, run `uv add polars`. This
+  installs Polars, and any dependencies, and creates both a `uv.lock`
+  file that keeps track of the versions of the libraries you’ve
+  installed and a hidden `.venv` reproducible (or *virtual*, hence the
+  “v” in venv) environment folder that serves as the project library.
+
+All Python libraries are installed in a single, global library on your
+computer known as the *system library*. The fact that we have a *project
+library* highlights an important feature of making project environments
+reproducible: Each project will have its own project library and thus be
+*isolated*. If two projects use different versions of the same package,
+they won’t conflict with each other because they’ll each have their own
+project library. (Well, not *exactly*. Python employs a global cache to
+avoid having to install the same version of a given library more than
+once. The project library will reference the global cache.) Whenever you
+install new libraries, the `uv.lock` file is automatically updated.
+
+> [!NOTE]
+>
+> ### Library Preferences
+>
+> While there are many Python libraries, I recommend the following for
+> the three pillars of data analytics tasks:
+>
+> - **Data Wrangling**: [Polars](https://pola.rs/) is a fast,
+>   self-consistent library for data wrangling that is growing in
+>   popularity as an laternative to [pandas](https://pandas.pydata.org).
+> - **Visualizations**:
+>   [seaborn.objects](https://seaborn.pydata.org/tutorial/objects_interface.html)
+>   is a module deliberately built with the consistency of the grammar
+>   of graphics philosophy. While still in development, unlike its
+>   parent library [Seaborn](https://seaborn.pydata.org/), its designed
+>   to minimize the need to invoke the underlying
+>   [matplotlib](https://matplotlib.org) for fine-tuning.
+> - **Modeling**: [scikit-learn](https://scikit-learn.org/stable/) is
+>   the most widely used library for machine learning, but it doesn’t do
+>   statistical inference. For that I recommend the
+>   [statsmodels](https://www.statsmodels.org/) and
+>   [Bambi](https://bambinos.github.io/bambi/) libraries for frequentist
+>   and Bayesian modeling, respectively.
+
+There is a *lot* more that [uv](https://docs.astral.sh/uv/) can do. For
+example, if you’re starting with an existing project, run `uv run` for
+the libraries included in `uv.lock` to be automatically installed. And
+if someone is using another tool to install libraries instead of uv
+(yes, there are *many* ways to install libraries in Python), they will
+likely need a `requirements.txt` file or a `pylock.toml` file to
+reproduce the project environment, which you can create with
+`uv export --format requirements.txt` or `uv export -o pylock.toml`,
+respectively.
 
 ## <span id="sec-positron">Positron</span>
+
+> [!TIP]
+>
+> ### Positron IDE
+>
+> As you well know, an integrated development environment (IDE), outside
+> of an open source language, is arguably your most important tool as a
+> data analyst. There are many options, but I recommend
+> [Positron](https://positron.posit.co), a next-generation data science
+> IDE. Built by Posit on VS Code’s [open source
+> core](https://github.com/microsoft/vscode), Positron combines the
+> multilingual extensibility of [VS
+> Code](https://code.visualstudio.com/) with essential data tools common
+> to language-specific IDEs.
+>
+> If RStudio is too specific and VS Code is too general, you may find
+> that [Positron is just
+> right](https://occasionaldivergences.com/posts/positron-intro/) and
+> becomes your only IDE for both Python and R. And unless you’re
+> comfortable navigating between directories using the command line,
+> Positron’s built-in terminal will be tied to the working directory you
+> have opened in the IDE.
+
+https://www.youtube.com/watch?v=4Ir_HX4riHw&t=1s
+
+https://www.youtube.com/watch?v=ndq2Mm3Dju8
 
 An integrated development environment (IDE), outside of an open source
 language, is arguably your most important tool as a data analyst or data
@@ -603,3 +695,7 @@ centered on its own:
 $$
 p(\theta | X) \propto p(X | \theta) \ p(\theta)
 $$
+
+## <span id="sec-copilot">Copilot</span>
+
+Available to students (where?), Goldilocks zone…
