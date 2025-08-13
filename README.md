@@ -447,8 +447,8 @@ deleted and the associated issue can be closed out.
 Note that when a branch is deleted on GitHub, it will still exist in
 your cloned repository. This isn’t necessarily a problem, though if you
 commit changes to a closed branch it will force the branch open again.
-Again, make sure you’re working on the correct branch. Eventually you
-may want to clean up branches that have been merged into `main` and
+Remember to make sure you’re working on the correct branch. Eventually
+you may want to clean up branches that have been merged into `main` and
 closed on GitHub by using `Git: Delete Branch...` via the command
 palette, followed by the branch name. You may also need to use
 `Git: Fetch` to prune tracking branches that are no longer on remote
