@@ -456,37 +456,45 @@ palette, followed by the branch name. You may also need to use
 
 ## <span id="sec-quarto">Quarto</span>
 
-[Quarto](https://quarto.org) is an open-source publishing system where
+[Quarto](https://quarto.org) is an open source publishing system where
 we can combine text along with code and its output. If you’ve used
 Jupyter notebooks, Quarto documents will be familiar. However, the most
 important difference is that the notebook format of a Quarto document is
-simply a means to and end. Quarto is built using a sophisticated tool
+simply a means to an end. Quarto is built using a sophisticated tool
 called Pandoc that can take whatever we produce within the Quarto
 document and render it into a Word document, PowerPoint presentation,
 PDF, Revealjs slide deck, interactive dashboard, website, etc. Browse
 through the [gallery](https://quarto.org/docs/gallery/) to see what sort
 of things are possible.
 
-Quarto is a command line tool that is also available as an extension
-that comes pre-installed with Positron. The
-[asc-template](https://github.com/marcdotson/asc-template) used to
-produce our project repository has Quarto documents (e.g., `README.qmd`)
-used throughout. Whenever you make a change to a Quarto document, render
-the document into its output and a preview of the rendered document will
-appear in the viewer (in the right pane by default). If you are using
-Python within the Quarto document, Quarto will render the output using
-the Jupyter kernel in the background.
+Quarto is a command line tool that is also available as a VS Code
+extension that comes pre-installed with Positron. The [project
+template](https://github.com/marcdotson/project-template) has Quarto
+documents (e.g., `README.qmd`) used throughout. Whenever you make a
+change to a Quarto document, render the document into its specified
+format and a preview of the rendered document will appear in Positron’s
+viewer (in the right pane by default). If you are using Python within
+the Quarto document, Quarto will render the output using the Jupyter
+kernel in the background.
 
 <img src="figures/quarto_pandoc.png" style="width:90.0%"
 data-fig-align="center" />
 
-Please note that a Quarto can be used in conjunction with a [Jupyter
+Please note that a Quarto document can be used in conjunction with a
+[Jupyter
 notebook](https://quarto.org/docs/get-started/hello/jupyter.html) to
-render into all of these different outputs via Pandoc as well. However,
-just because we can doesn’t mean we should. For most of the code we
-produce, we should use flat text Python `.py` scripts. We use Quarto
-when we want to produce a GitHub page, report, presentation, dashboard,
-etc.
+render into all of these different outputs via Pandoc as well. For
+example, we can render a Jupyter notebook called `data-analysis.ipynb`
+into a PDF using the command line with
+`quarto render data-analysis.ipynb --to typst`. However, just because we
+can doesn’t mean we should. Unless we need to produce output in a format
+other than code, much of the code we write for a project can simply use
+flat text Python `.py` scripts.
+
+The [Quarto documentation](https://quarto.org/docs/guide/) is
+comprehensive and highly recommended, especially as you adapt work for
+different formats. The following sections highlight some of the
+essential features of Quarto documents.
 
 ### YAML
 
@@ -498,9 +506,16 @@ a separate markdown document using “GitHub Flavored Markdown” that
 GitHub can parse. For example, the header for this document is:
 
     ---
-    title: "ASC Training"
+    title: "Data Stack"
     format: gfm
     ---
+
+If you want to render the document into a PDF, use `format: typst`
+instead. [Typst](https://quarto.org/docs/output-formats/typst.html) is
+modern, fast typesetting software for creating PDFs. Typst comes
+pre-installed with Quarto. The alternative is to [install and
+use](https://quarto.org/docs/output-formats/pdf-basics.html) a slower
+and more cumbersome typesetting distribution tied to `format: pdf`.
 
 ### Markdown
 
@@ -511,10 +526,10 @@ syntax. Note that GitHub recognizes this syntax, including in issues and
 pull requests.
 
 Sometimes working with markdown alone can be challenging. Positron
-includes a visual mode you can access by right-clicking inside any
-Quarto document. The visual mode includes some GUI options to help you
-produce the markdown syntax, which can be especially helpful for things
-like [tables](https://quarto.org/docs/authoring/tables.html) and
+includes a visual mode you can access inside any Quarto document. The
+visual mode includes some point-and-click options to help you produce
+markdown syntax, which can be especially helpful for things like
+[tables](https://quarto.org/docs/authoring/tables.html) and
 [citations](https://quarto.org/docs/authoring/citations.html).
 
 ### Code
@@ -522,8 +537,8 @@ like [tables](https://quarto.org/docs/authoring/tables.html) and
 Quarto allows us to include [code
 blocks](https://quarto.org/docs/computations/python.html) and output as
 part of the document. Much like Jupyter notebooks, you can include
-Julia, Python, and R code (Jupyter stands for *Ju*lia, *Py*thon, and
-*R*) as well as C++, Stan, and other code blocks and output.
+Julia, Python, and R code as well as C++, Stan, and other code blocks
+and output.
 
 There are a variety of options for each code block. In addition to
 specifying the language used within the code block, the code block can
@@ -533,59 +548,10 @@ following the hashpipe operator `#|` within the body of the code block.
 Any code block YAML that should apply to the document in its entirety
 can simply be moved into the header YAML.
 
-### Parameters
-
-Ever have to go through and manually change any data or model output
-referenced in a report? Not only is this costly and error prone, but it
-is the definition of non-reproducible.
-[Parameters](https://quarto.org/docs/computations/parameters.html) in
-Quarto help solve part of this problem.
-
-Parameters for Quarto documents using the Jupyter kernel are included in
-a flagged code block:
-
-    #| tags: [parameters]
-
-    name = 'Analytics'
-    mean = 3.2
-    data = read_csv('/data/analytics_data.csv')
-
-Parameter values can then be referenced in the document (including code
-blocks) using the parameter name.
-
-### Figures
-
-### Tables
-
-> [!TIP]
->
-> ### Great Tables
->
-> Great Tables and Polars with `.style`?
-
-### References
-
-We can specify a bibliography in the header:
-
-    ---
-    title: "Research Assistant Training"
-    format: gfm
-    bibliography: references.bib
-    ---
-
-We can can use the bibliography `references.bib` to include regular
-single-paper citations using `[@citation]` or multiple-paper citations
-using `[@citation; @citation]`, in-line citations using `@citation`, or
-citations without the Author using `[-@citation]`.
-
-Additionally, each section and sub-section can be referenced by adding a
-`#sec` identifier to any heading and referencing `@sec`. For example,
-`## Introduction {#sec-intro}` would be referenced as `@sec-intro`.
-
 ### Equations
 
 If you need to include any math, you shouldn’t be surprised that there’s
-a typesetting syntax for that. It’s called
+a typesetting syntax for that. It’s tied to
 [LaTeX](https://www.latex-project.org) (pronounced “lah-tech” or
 “lay-tech”) and our primary interest is using it’s [math
 syntax](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols). Use
