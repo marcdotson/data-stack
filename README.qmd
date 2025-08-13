@@ -114,62 +114,40 @@ The command palette is the primary way to manage options (e.g., pane layout view
 
 ## [GitHub]{#sec-github}
 
-Git is a powerful collaboration and [version control system](https://peerj.com/preprints/3159v2/). While it is the industry standard for software development, we can easily adopt this framework to provide structure for any kind of research, ASC projects included. GitHub is an online hosting service where each project lives in its own repository maintained by me as the mentor. After a project is completed, you can copy (i.e., *fork*) the project repository for you to maintain. Learning to use Git and GitHub not only aids in collaboration, it will ultimately allow you to develop an online portfolio of work.
+Git is a powerful [version control system](https://peerj.com/preprints/3159v2/). While it is the industry standard for software development, we can easily adopt this framework to provide structure for any kind of data project. GitHub is an online hosting service where each project lives in its own repository. Learning to use Git and GitHub not only aids in collaboration, it will ultimately allow you to develop an online portfolio of work.
 
-To get started, you'll need to [register a GitHub account](https://happygitwithr.com/github-acct#github-acct) and install Git [using the command line](https://happygitwithr.com/install-git#install-git) (substituting R references with Python and RStudio with Positron) or [downloading the latest source](https://git-scm.com/downloads). You'll also need to both [introduce yourself to Git](https://happygitwithr.com/hello-git) (using the email associated with your GitHub account and substituting R references with Python and RStudio with Positron) and then authorize Positron to use your GitHub credentials (which you *should* be prompted to do when cloning your project repository below). Note that when you get a prompt from Positron to use `Git: Fetch` automatically, go ahead and select yes. This will allow your local Git to be aware of updates, including new branches, on GitHub.
+To get started, you'll need to [register a GitHub account](https://happygitwithr.com/github-acct#github-acct) and install Git [using the command line](https://happygitwithr.com/install-git#install-git) (substituting R references with Python and RStudio with Positron) or [downloading the latest source](https://git-scm.com/downloads). You'll also need to both [introduce yourself to Git](https://happygitwithr.com/hello-git) (using the email associated with your GitHub account and again substituting R references with Python and RStudio with Positron) and then authorize Positron to use your GitHub credentials (which you *should* be prompted to do when first cloning your project repository). Note that when you get a prompt from Positron to use `Git: Fetch` automatically, go ahead and select yes. This will allow your local Git to be aware of updates, including new branches, on GitHub.
 
-Your project repository will be based on my [asc-template](https://github.com/marcdotson/asc-template) to provide consistency across projects. I will need to add you as a collaborator to the project repository. Note that there are certain limitations to the size and type of files that can be hosted (i.e., *pushed* to GitHub). There are also certain things that shouldn't be accessible by the public (e.g., data we are under NDA to access). For these reasons, we have files and folders that are pushed to GitHub and those that are not. Here's how the project repository is organized:
+I recommend using my [project template](https://github.com/marcdotson/project-template) to create your project repository. Just click on "Use this template" and create a new repository with a short, lowercase, hyphenated slug as the repository name that's consistent with the project (e.g., advanced-coursework). One person will maintain the repository and have it connected to their account (i.e., the mentor for ASC projects) while others working on the project can be added as collaborators. Anyone with access to the project repository can copy (i.e., *fork*) it to save, maintain, or contribute to if they aren't a collaborator.
 
-- `/code` Scripts with prefixes (e.g., `01_import-data.py`, `02_clean-data.py`) with functions in `/code/src`.
+Note that there are certain limitations to the size and type of files that can be hosted (i.e., *pushed* to GitHub). There are also certain things that shouldn't be accessible by the public (e.g., data we are under NDA to access). For these reasons, we have files and folders that are pushed to GitHub and those that are not. Here's how the project repository is organized:
+
+- `/code` Scripts with prefixes (e.g., `01_import-data.py`, `02_clean-data.py`) and functions in `/code/src`.
 - `/data` Simulated and real data, the latter not pushed.
 - `/figures` PNG images and plots.
 - `/output` Output from model runs, not pushed.
 - `/presentations` Presentation slides.
 - `/private` A catch-all folder for miscellaneous files, not pushed.
-- `/writing` Case studies.
-- `/.venv` Hidden project library, not pushed.
+- `/writing` Paper, report, and case studies.
+- `/.venv` Hidden Python project library, not pushed.
 - `.gitignore` Hidden Git instructions file.
-- `.python-version` Hidden Python version for the reproducible environment.
-- `requirements.txt` Information on the reproducible environment.
+- `.python-version` Hidden Python version file.
+- `pyproject.toml` Python project environment configuration file.
+- `uv.lock` Python project environment lockfile.
 
-Any file or folder that begins with a period is hidden (i.e., you won't see it in your OS file explorer by default, but you will see it in the explorer in Positron). The `.gitignore` file is what controls which files and folders are pushed.
+Any file or folder that begins with a period is hidden (i.e., you won't see it in your OS file explorer by default, but you will see it in the explorer in Positron). The `.gitignore` file is what controls which files and folders are pushed. Note that the [project template](https://github.com/marcdotson/project-template) also includes instructions for using the project environment and as a link to this training.
 
 ### Issues
 
-To stay organized, we will manage the project by keeping track of assigned tasks using GitHub's issues (see the tab at the top of the project repository on GitHub). We can have an ongoing conversation there about each specific issue and close them out when a given issue is completed or resolved. Be sure to tag collaborators you want to see a specific comment (e.g., `@marcdotson`). Think of this as an email thread or Teams channel except all of the conversations are in one place, easily searchable, and automatically archived as part of the version control.
+To stay organized, manage your project by keeping track of tasks using GitHub's issues (see the tab at the top of the project repository on GitHub). There you can have an ongoing conversation and close tasks out when a given issue is completed or resolved. Be sure to tag collaborators you want to see a specific comment (e.g., `@marcdotson`). Think of this as an email thread or chat channel except all of the conversations are in one place, easily searchable, and automatically archived as part of the version control.
 
 ### Clone
 
-Once you are a collaborator on the project repository, you can *clone* it. Cloning simply means you're creating a local copy of the repository, though the clone isn't just a copy of the folder. Git still works in the background keeping track of changes and managing the version control. Follow the [Clone a repository locally](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_clone-a-repository-locally) to clone the project repository.
+Once you are a collaborator on a project repository, you can *clone* it. Cloning simply means you're creating a local copy of the repository, though the clone isn't just a copy of the folder. Git still works in the background keeping track of changes and managing the version control. Using the command palatte in Positron, use the `Git:Clone` command and select the project repository you'd like to clone.
 
 ![](figures/github_clone.png){width=90% fig-align="center"}
 
-You only need to clone the project repository one time. Please note that any of the files and folders that aren't pushed to GitHub can be created in your cloned repository without any impact on the  repository hosted on GitHub. For example, I typically store PDFs of papers and other related materials that I don't want to (or can't) share in the `/private` folder so that the resources I need are all within the same directory on my computer.
-
-::: {.callout-important title="Reproducible Environments"}
-Now that you've cloned the project repository, we can finish setting up a *reproducible environment*. An environment is composed of Python and the libraries (including the library dependencies) used for a given project. What makes an environment reproducible is keeping track of which *version* of Python and the libraries we're using for a given project. While "keeping track" could happen in many different ways, ideally we want to keep track of our environment such that it can be easily *reproduced* on another machine, by you (including future you) or someone else. For our purposes, we need to be sure that everyone working on our project, including anyone at the sponsor organization, can easily reproduce our environment and run the associated code.
-
-You might be wondering why we need to keep track of Python and library versions. Here are two reasons:
-
-- Not all Python versions are (or were) backwards compatible.
-- Functions, methods, and parameters get modified or deprecated.
-
-In other words, just because our project code works now doesn't mean that it will work for someone else or in the future. Ensuring our project environment is reproducible enables collaboration and future-proofing. There are many ways to maintain a reproducible environment. I recommend using pyenv and [venv](https://docs.python.org/3/library/venv.html) to keep track of Python and library versions, respectively.
-
-#### `.python-version`
-
-Just like we specified a global default version of Python using pyenv, we can also specify a *project* default version of Python using pyenv as part of our reproducible environment. Note that this has already been done as part of the [asc-template](https://github.com/marcdotson/asc-template). However, to create one on your own or to modify an existing project default Python version, go to the terminal in Positron after opening the cloned repository in the explorer pane and run `pyenv local 3.12.4`, assuming you want Python 3.12.4 to be set as the default. This would create (or modify) a `.python-version` file in that directory that specifies the version of Python to use for the project.
-
-This `.python-version` file is simple and small enough to be pushed to GitHub. When you open the cloned project repository in Positron, the interpreter selection should change to the Python version you've specified in the `.python-version` file.
-
-#### `requirements.txt`
-
-By default, all libraries are installed in a single, global library on your computer known as the *system library*. What we need is a *project library*. This helps highlight an important feature of reproducible environments: Each project will have its own project library and thus be *isolated*. If two projects use different versions of the same package, they won't conflict with each other because they'll each have their own project library. (Well, not *exactly*. Python employs a global cache to avoid having to install the same version of a given library more than once. The project library will reference the global cache. Note that if you've installed Python prior to using pyenv, you may have a global cache that is borked. You can run `pip cache purge` in the command line to start fresh.)
-
-The venv library comes pre-installed with Python as the default reproducible (or *virtual*, hence the "v" in venv) environment management tool. It works in two steps. First, we must create a project library. Second, we keep track of the versions of the libraries we use. Note that this has already been *started* as part of the [asc-template](https://github.com/marcdotson/asc-template). The project library is stored in the `/.venv` folder, a hidden folder listed in the project organization. It isn't simple or small, so it's not something we push to GitHub. However, the `requirements.txt` file is what keeps track of the library versions and is a file that can be pushed to GitHub.
-
-To put it another way, we use `requirements.txt` to recreate the needed project library in our cloned repository in the same way we use `.python-version` to know what Python version to use. To finish setting up the reproducible environment, go to the terminal in Positron after opening the cloned repository in the explorer pane and run `python -m venv .venv` to create the `/.venv` project library. Positron may ask if you want to select this new environment for the workspace folder -- select yes. You may also be promted to install the ipykernel library -- select install. Now that your project library is created, run `pip install -r requirements.txt` in the terminal to install the specified library versions. Note that whenever you install new libraries or decide to update the versions of libraries you use, run `pip freeze > requirements.txt` to update `requirements.txt`.
-:::
+You only need to clone the project repository one time. Please note that any of the files and folders that aren't pushed to GitHub can be created in your cloned repository without any impact on the repository hosted on GitHub. For example, I typically store PDFs and other related materials that I don't want to (or can't) share in the `/private` folder so that the resources I need are all within the same directory on my computer.
 
 ### Branches
 
@@ -179,7 +157,7 @@ Every repository has a `main` branch. If this were software, the `main` branch w
 
 ### Commit, Push, and Pull
 
-You've identified what you need to work on using issues, cloned the project repository and set up the reproducible environment, and made sure you're working on the correct branch. Finally, you can get to work! Then what? Once you've made a number of changes to your cloned project respository, how do you share that with your collaborators? If you click on the source control tab below the explorer (by default in the left pane in Positron) you'll see all of the files you've changed. You first need to *stage* these changes using the plus sign next to the files. You then need to provide a *commit message*. Like the branch names, these should be short and descriptive, like "Created a function to parse text data" or "Cleaned up errors to the final model".
+You've identified what you need to work on using issues, cloned the project repository, and made sure you're working on the correct branch. Finally, you can get to work! Then what? Once you've made a number of changes to your cloned project respository, how do you share that with your collaborators? If you click on the source control tab below the explorer (by default in the left pane in Positron) you'll see all of the files you've changed. You first need to *stage* these changes using the plus sign next to the files. You then need to provide a *commit message*. Like the branch names, these should be short and descriptive, like "Created a function to parse text data" or "Cleaned up errors to the final model".
 
 It is the branch names and these commit messages that provide a record of the work we have done. With a descriptive message, you are ready to [*commit*](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_staging-and-committing-code-changes). This is like saving a file, except we can save multiple files all at once associated with the commit message we've written. These changes are now archived as part of the version control on our cloned project repository. To share them with our collaborators, we need to *push* them to the repository on GitHub. Similarly, to get changes others have pushed, we need to *pull* them from the repository on GitHub. In Positron, this is often summarized as one step called *sync*, which is pulling and then pushing sequentially.
 
@@ -187,15 +165,15 @@ It is the branch names and these commit messages that provide a record of the wo
 
 To summarize, your daily work in Positron will look like this:
 
-- Open the cloned project repository in the explorer pane to set your working directory.
-- Make sure you've checked out the correct branch to work in (he branch name you've checked out is in the bottom left corner).
-- Pull changes that have been pushed since you last worked on the project using the sync button in the source control pane or next to the branch name in the bottom left corner.
-- Once you've done some amount of work, stage and commit changes with a descriptive message in the source control pane.
-- Push changes using the sync button in the source control pane or next to the branch name in the bottom left corner.
+1. Open the cloned project repository in the explorer pane to set your working directory.
+2. Make sure you've checked out the correct branch to work in (the branch name you've checked out is in the bottom left corner).
+3. Pull changes that have been pushed since you last worked on the project using the sync button in the source control pane or next to the branch name in the bottom left corner.
+4. Once you've done some amount of work, stage and commit changes with a descriptive message in the source control pane.
+5. Push changes using the sync button in the source control pane or next to the branch name in the bottom left corner.
 
 ### Pull Requests
 
-When you've completed work on the issue associated with the branch, create a [*pull request*](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_creating-and-reviewing-github-pull-requests) on GitHub and tag me (i.e., `@marcdotson`). A pull request is exactly what it sounds like -- a request submitted to the repository maintainer to pull the changes you've made. This allows me to review what you've done, have a conversation with you about it as part of the pull request itself (which looks a lot like an issue tied specifically to the pull request), and eventually pull what you've done into `main`. I'll then delete the branch specific to that issue and close out the associated issue.
+When you've completed work on the issue associated with the branch, create a [*pull request*](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_creating-and-reviewing-github-pull-requests) on GitHub. A pull request is exactly what it sounds like -- a request submitted to the repository maintainer to pull the changes you've made. This allows the maintainer, or someone they assign, to review what you've done, have a conversation with you about it as part of the pull request itself (which looks a lot like an issue tied specifically to the pull request), and eventually pull what you've done into `main`. After the pull request is completed, the branch specific to that issue can be deleted and the associated issue can be closed out.
 
 Note that when a branch is deleted on GitHub, it will still exist in your cloned repository. This isn't necessarily a problem, though if you commit changes to a closed branch it will force the branch open again. Again, make sure you're working on the correct branch. Eventually you may want to clean up branches that have been merged into `main` and closed on GitHub by using `Git: Delete Branch...` via the command palette, followed by the branch name. You may also need to use `Git: Fetch` to prune tracking branches that are no longer on remote (i.e., on GitHub).
 
