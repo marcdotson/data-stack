@@ -146,7 +146,9 @@ install new libraries, the `uv.lock` file is automatically updated.
 >   philosophy. While still in development, unlike its parent library
 >   [Seaborn](https://seaborn.pydata.org/), its designed to minimize the
 >   need to invoke the underlying [matplotlib](https://matplotlib.org)
->   for fine-tuning.
+>   for fine-tuning. Totally separate from the matplotlib architecture,
+>   [plotnine](https://plotnine.org) is a Python port of R’s {ggplot2}
+>   package and also uses the grammar of graphics.
 > - **Modeling**: [scikit-learn](https://scikit-learn.org/stable/) is
 >   the most widely used library for machine learning, but it doesn’t do
 >   statistical inference. For that I recommend the

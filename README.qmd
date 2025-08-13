@@ -56,7 +56,7 @@ All Python libraries are installed in a single, global library on your computer 
 While there are many Python libraries, I recommend the following for the three categories of data analytics tasks:
 
 - **Data Wrangling**: [Polars](https://pola.rs/) is a fast, self-consistent library for data wrangling that is growing in popularity as an alternative to [pandas](https://pandas.pydata.org).
-- **Visualizations**: [seaborn.objects](https://seaborn.pydata.org/tutorial/objects_interface.html) is a module built using the consistency of the grammar of graphics philosophy. While still in development, unlike its parent library [Seaborn](https://seaborn.pydata.org/), its designed to minimize the need to invoke the underlying [matplotlib](https://matplotlib.org) for fine-tuning.
+- **Visualizations**: [seaborn.objects](https://seaborn.pydata.org/tutorial/objects_interface.html) is a module built using the consistency of the grammar of graphics philosophy. While still in development, unlike its parent library [Seaborn](https://seaborn.pydata.org/), its designed to minimize the need to invoke the underlying [matplotlib](https://matplotlib.org) for fine-tuning. Totally separate from the matplotlib architecture, [plotnine](https://plotnine.org) is a Python port of R's {ggplot2} package and also uses the grammar of graphics.
 - **Modeling**: [scikit-learn](https://scikit-learn.org/stable/) is the most widely used library for machine learning, but it doesn't do statistical inference. For that I recommend the [statsmodels](https://www.statsmodels.org/) and [Bambi](https://bambinos.github.io/bambi/) libraries for frequentist and Bayesian modeling, respectively.
 :::
 
