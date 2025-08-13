@@ -224,5 +224,9 @@ $$
 
 ## [Copilot]{#sec-copilot}
 
-Available to students (where?), Goldilocks zone...
+Everyone has their preferred AI tools. All Utah State students have access to [Copilot](https://copilot.usu.edu/). Cleary AI can contribute to learning and productivity. AI tools are especially helpful for drafting and debugging code and explaining concepts in new ways. However, AI can also be a detriment to learning and productivity. AI is at its most dangerous when we use it to replace rather than supplement thinking.
+
+I've found that there is a Goldilocks zone for using AI tools like Copilot. When you know very little about a topic, AI can be dangerous because it can provide answers that sound plausible but you don't know enough to evaluate the information. When you know a lot about a topic, AI can be unreliable and slow you down because it can easily hallucinate. AI can be most helpful when you know enough about a topic to be able to evaluate the information while also needing the help.
+
+However you use AI, be careful, thoughtful, and transparent about it, including questioning results and citing it as a source -- but not the only source -- for information.
 
