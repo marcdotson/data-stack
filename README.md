@@ -165,95 +165,102 @@ create with `uv export --format requirements.txt` or
 
 ## <span id="sec-positron">Positron</span>
 
-> [!TIP]
->
-> ### Positron IDE
->
-> As you well know, an integrated development environment (IDE), outside
-> of an open source language, is arguably your most important tool as a
-> data analyst. There are many options, but I recommend
-> [Positron](https://positron.posit.co), a next-generation data science
-> IDE. Built by Posit on VS Code’s [open source
-> core](https://github.com/microsoft/vscode), Positron combines the
-> multilingual extensibility of [VS
-> Code](https://code.visualstudio.com/) with essential data tools common
-> to language-specific IDEs.
->
-> If RStudio is too specific and VS Code is too general, you may find
-> that [Positron is just
-> right](https://occasionaldivergences.com/posts/positron-intro/) and
-> becomes your only IDE for both Python and R. And unless you’re
-> comfortable navigating between directories using the command line,
-> Positron’s built-in terminal will be tied to the working directory you
-> have opened in the IDE.
-
-https://www.youtube.com/watch?v=4Ir_HX4riHw&t=1s
-
-https://www.youtube.com/watch?v=ndq2Mm3Dju8
-
-An integrated development environment (IDE), outside of an open source
-language, is arguably your most important tool as a data analyst or data
-engineer. There are many options, but I recommend
+A code editor or integrated development environment (IDE), outside of an
+open source language, is arguably your most important tool as a data
+analyst or data engineer. There are many options, but I recommend
 [Positron](https://positron.posit.co), a next-generation data science
 IDE. Built on VS Code’s [open source
 core](https://github.com/microsoft/vscode), Positron combines the
 multilingual extensibility of [VS Code](https://code.visualstudio.com/)
-with essential data tools common to language-specific IDEs.
+with essential data tools common to language-specific IDEs. After
+installing Python, [download](https://positron.posit.co/download.html)
+and install Positron.
 
-While Positron is still in active development, it’s stable enough for
-our work. After installing Python using pyenv (and specifying a non-OS
-version as a global default), go ahead and
-[download](https://positron.posit.co/download.html) and install
-Positron.
-
-While there is a [guide](https://positron.posit.co/interpreters.html)
-for Positron, the following highlights some of the essential
-functionality. Note that since Positron is built on VS Code’s open
-source core, VS Code’s excellent
+The following highlights some of Positron’s essential data-friendly
+functionality. You can also watch [a quick tour of
+Positron](https://www.youtube.com/watch?v=4Ir_HX4riHw&t=1s). There is
+more that [Positron](https://positron.posit.co) can do, including
+connecting to databases and virtual machines. Note that since Positron
+is built on VS Code’s open source core, VS Code’s excellent
 [documentation](https://code.visualstudio.com/docs) remains largely
-relevant.
+relevant. However, since Positron is *actually* open source, there are
+certain proprietary VS Code extensions that aren’t available in
+Positron. See the [Open VSX Registry](https://open-vsx.org) to search
+all available extensions.
 
 ### Console and Session
 
-If you’ve used VS Code, Positron’s layout will look familiar. The
-explorer on the left shows the folder you have open, which also
-establishes your working directory, and the central pane is where you
-type and run code. Two obvious differences are the integrated console
-(in the bottom pane by default) and the session information (in the
-right pane by default), which includes details of the variables and data
-that have been loaded.
+If you’ve used VS Code, Positron’s layout will look familiar. When
+selected from the activity bar, the explorer on the left shows the
+folder you have open, which also establishes your working directory, and
+the central pane is the editor where you type and run code. Two obvious
+differences are the integrated console (in the bottom pane by default)
+and the session information (in the right pane by default), which
+includes details of the variables and data that have been loaded.
 
 <img src="figures/positron-01_console-session.png" style="width:90.0%"
 data-fig-align="center" />
 
 The console is where the code executes while the terminal (i.e., command
-line, also in the bottom pane by default) has the folder you have open
-in the explorer *already identified as the working directory*. The
-variables and data in the session information help you keep track of
-what you’re working with.
+line, also in the bottom pane by default) also has the folder you have
+open in the explorer identified as the working directory (i.e., you
+don’t need to manually navigate to the working directory via the
+terminal). The variables and data in the session information help you
+keep track of what you’re working with.
 
 ### Data Explorer
 
-You can click on any data you have loaded (or even CSV or Parquet files
-in the explorer without importing first) to open the data explorer.
+You can click on the data frame icon to the right of any data you have
+loaded (or even CSV or Parquet files in the explorer without importing
+first) to open the data explorer.
 
 <img src="figures/positron-02_data-explorer.png" style="width:90.0%"
 data-fig-align="center" />
 
 The data explorer is designed to facilitate coding, not replace it. The
-data explorer provides a summary of the data and allows you to quickly
-sort and filter the data so you can get back to programmatically going
-about data wrangling.
+data explorer provides a summary of the data, including simple
+visualizations, and allows you to quickly sort and filter the data to
+inform programmatically going about data wrangling.
 
 ### Plots
 
 Along with variables and data, the session information has a dedicated
-location for plots, including a history gallery to click through and
-easily compare previous plots. This also includes support for
-interactive plots.
+location for visualizations, including a history gallery to click
+through and easily compare previous plots. Visualizations can also be
+opened as a separate tab in the editor pane. This also includes support
+for interactive plots.
 
 <img src="figures/positron-03_plots.png" style="width:90.0%"
 data-fig-align="center" />
+
+### Help
+
+Including a question mark after most any command in the console will
+open the help (in the right pane by default). This serves as a built-in
+browser to allow you to reference online documentation, including
+parameter definitions and examples you can copy and use.
+
+<img src="figures/positron-04_help.png" style="width:90.0%"
+data-fig-align="center" />
+
+### Positron Assistant
+
+Positron Assistant is an AI tool integrated in Positron with contextual
+awareness of everything in your project. You can use Positron Assistant
+to ask questions, edit or refactor code, and function as an agent to
+accomplish specific tasks.
+
+> [!IMPORTANT]
+>
+> ### Preview Feature
+>
+> Positron Assistant is currently a *preview feature* with only Claude
+> available for chat and either Claude or
+> [Copilot](https://github.com/marcdotson/data-stack?tab=readme-ov-file#copilot)
+> for inline code completions.
+
+<img src="figures/positron-05_positron-assistant.png"
+style="width:90.0%" data-fig-align="center" />
 
 ### Command Palette
 
@@ -261,29 +268,8 @@ The command palette is the primary way to manage options (e.g., pane
 layout views and themes) and is a mainstay of the shortcut-heavy VS
 Code. Open with Cmd/Cntrl + Shift + P.
 
-<img src="figures/positron-04_command-palette.png" style="width:90.0%"
+<img src="figures/positron-06_command-palette.png" style="width:90.0%"
 data-fig-align="center" />
-
-### Interpreter Selection
-
-You can use the drop-down in the top right to select intepreters,
-including Python versions and other languages you have installed.
-
-<img src="figures/positron-05_interpreter-selection.png"
-style="width:90.0%" data-fig-align="center" />
-
-### Positron Assistant
-
-### Remote Explorer
-
-### Extensions
-
-### Help
-
-Including a question mark after most any command will open the help (in
-the right pane by default). This serves as a built-in browser to allow
-you to reference online documentation, including parameter definitions
-and examples you can copy and use.
 
 ## <span id="sec-github">GitHub</span>
 
