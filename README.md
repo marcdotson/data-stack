@@ -72,7 +72,7 @@ versions.
 
 > [!TIP]
 >
-> ### What about R and Julia?
+> ### R and Julia
 >
 > Python might be the most commonly used open source programming
 > language for data wrangling, visualizations, and modeling – but it’s
@@ -83,7 +83,7 @@ versions.
 >
 > - Julia is the newest and fastest and was developed by mathematicians.
 > - Python is the most popular and diverse in terms of libraries and
->   applications and was developed by computer scientistis.
+>   applications and was developed by computer scientists.
 > - R is the most narrowly focused on data analytics and culturally
 >   cohesive and was developed by statisticians.
 >
@@ -94,23 +94,24 @@ versions.
 > background using
 > R](https://occasionaldivergences.com/posts/python-intro/).
 
-You can also use uv to manage project environments. A project
-environment is composed of the language(s) and libraries (including the
-dependencies) used for a given project. What makes a project environment
-reproducible is keeping track of which *version* of the language(s) and
-the libraries we’re using for a given project so that it can be easily
-reproduced on another machine by you (including future you) or someone
-else. You can set up your own project environment or use an existing
-one, like the one included when you use my [project
-template](https://github.com/marcdotson/project-template). If you aren’t
-using my project template, it’s still easy to set up and manage a
-project environment.
+You can also use uv to manage project environments and make them
+reproducible. A project environment is composed of the language(s) and
+libraries (including the dependencies) used for a given project. What
+makes a project environment reproducible is keeping track of which
+*version* of the language(s) and the libraries we’re using for a given
+project so that it can be easily reproduced on another machine by you
+(including future you) or someone else. You can set up your own project
+environment or use an existing one, like the one included when you use
+my [project template](https://github.com/marcdotson/project-template).
+If you aren’t using my project template, it’s still easy to set up and
+manage a project environment.
 
-- After navigating to a project working directory, run `uv init` to
-  initialize a project environment. This creates a `pyproject.toml` file
-  with metadata about the project and a hidden `.python-version` file
-  that specifies the default version of Python for the project. (It also
-  creates `main.py` and `README.md` files that you can use or delete.)
+- After navigating to a project working directory on the command line,
+  run `uv init` to initialize a project environment. This creates a
+  `pyproject.toml` file with metadata about the project and a hidden
+  `.python-version` file that specifies the default version of Python
+  for the project. (It also creates `main.py` and `README.md` files that
+  you can use or delete.)
 - With the project environment initialized, you can install libraries.
   For example, to install the Polars library, run `uv add polars`. This
   installs Polars, and any dependencies, and creates both a `uv.lock`
@@ -134,18 +135,18 @@ install new libraries, the `uv.lock` file is automatically updated.
 > ### Library Preferences
 >
 > While there are many Python libraries, I recommend the following for
-> the three pillars of data analytics tasks:
+> the three categories of data analytics tasks:
 >
 > - **Data Wrangling**: [Polars](https://pola.rs/) is a fast,
 >   self-consistent library for data wrangling that is growing in
->   popularity as an laternative to [pandas](https://pandas.pydata.org).
+>   popularity as an alternative to [pandas](https://pandas.pydata.org).
 > - **Visualizations**:
 >   [seaborn.objects](https://seaborn.pydata.org/tutorial/objects_interface.html)
->   is a module deliberately built with the consistency of the grammar
->   of graphics philosophy. While still in development, unlike its
->   parent library [Seaborn](https://seaborn.pydata.org/), its designed
->   to minimize the need to invoke the underlying
->   [matplotlib](https://matplotlib.org) for fine-tuning.
+>   is a module built using the consistency of the grammar of graphics
+>   philosophy. While still in development, unlike its parent library
+>   [Seaborn](https://seaborn.pydata.org/), its designed to minimize the
+>   need to invoke the underlying [matplotlib](https://matplotlib.org)
+>   for fine-tuning.
 > - **Modeling**: [scikit-learn](https://scikit-learn.org/stable/) is
 >   the most widely used library for machine learning, but it doesn’t do
 >   statistical inference. For that I recommend the
@@ -157,11 +158,10 @@ There is a *lot* more that [uv](https://docs.astral.sh/uv/) can do. For
 example, if you’re starting with an existing project, run `uv run` for
 the libraries included in `uv.lock` to be automatically installed. And
 if someone is using another tool to install libraries instead of uv
-(yes, there are *many* ways to install libraries in Python), they will
-likely need a `requirements.txt` file or a `pylock.toml` file to
-reproduce the project environment, which you can create with
-`uv export --format requirements.txt` or `uv export -o pylock.toml`,
-respectively.
+(e.g., pip), they will likely need a `requirements.txt` file or a
+`pylock.toml` file to reproduce the project environment, which you can
+create with `uv export --format requirements.txt` or
+`uv export -o pylock.toml`, respectively.
 
 ## <span id="sec-positron">Positron</span>
 
