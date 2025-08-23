@@ -540,7 +540,8 @@ Quarto allows us to include [code
 blocks](https://quarto.org/docs/computations/python.html) and output as
 part of the document. Much like Jupyter notebooks, you can include
 Julia, Python, and R code as well as C++, Stan, and other code blocks
-and output.
+and output. To run Python code only, specify `jupyter: python3` in the
+header YAML.
 
 There are a variety of options for each code block. In addition to
 specifying the language used within the code block, the code block can

@@ -210,7 +210,7 @@ Sometimes working with markdown alone can be challenging. Positron includes a vi
 
 ### Code
 
-Quarto allows us to include [code blocks](https://quarto.org/docs/computations/python.html) and output as part of the document. Much like Jupyter notebooks, you can include Julia, Python, and R code as well as C++, Stan, and other code blocks and output.
+Quarto allows us to include [code blocks](https://quarto.org/docs/computations/python.html) and output as part of the document. Much like Jupyter notebooks, you can include Julia, Python, and R code as well as C++, Stan, and other code blocks and output. To run Python code only, specify `jupyter: python3` in the header YAML.
 
 There are a variety of options for each code block. In addition to specifying the language used within the code block, the code block can be given an identifier, can have warnings suppressed, can run without producing output, etc. These options are specified using YAML syntax following the hashpipe operator `#|` within the body of the code block. Any code block YAML that should apply to the document in its entirety can simply be moved into the header YAML.
 
