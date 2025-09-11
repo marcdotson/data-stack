@@ -106,8 +106,11 @@ my [project template](https://github.com/marcdotson/project-template).
 If you aren’t using my project template, it’s still easy to set up and
 manage a project environment.
 
-- After navigating to a project working directory on the command line,
-  run `uv init` to initialize a project environment. This creates a
+- Navigate to a project working directory via the command line or using
+  a code editor or IDE like [Positron](#sec-positron). This working
+  directory *should not* be in a location on your local machine that is
+  being synced to the cloud via OneDrive, iCloud, etc.
+- Run `uv init` to initialize a project environment. This creates a
   `pyproject.toml` file with metadata about the project and a hidden
   `.python-version` file that specifies the default version of Python
   for the project. (It also creates `main.py` and `README.md` files that
