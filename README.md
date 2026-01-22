@@ -255,15 +255,6 @@ awareness of everything in your project. You can use Positron Assistant
 to ask questions, edit or refactor code, and function as an agent to
 accomplish specific tasks.
 
-> [!IMPORTANT]
->
-> ### Preview Feature
->
-> Positron Assistant is currently a *preview feature* with only Claude
-> available for chat and either Claude or
-> [Copilot](https://github.com/marcdotson/data-stack?tab=readme-ov-file#copilot)
-> for inline code completions.
-
 <img src="figures/positron-05_positron-assistant.png"
 style="width:90.0%" data-fig-align="center" />
 
@@ -327,9 +318,16 @@ repository is organized:
 - `/presentations` Presentation slides.
 - `/private` A catch-all folder for miscellaneous files, not pushed.
 - `/writing` Paper, report, and case studies.
+- `/.quarto` Hidden Quarto project library, not pushed.
 - `/.venv` Hidden Python project library, not pushed.
 - `.gitignore` Hidden Git instructions file.
 - `.python-version` Hidden Python version file.
+- `LICENSE` MIT License for “as is” permission.
+- `README.md` GitHub-flavored markdown README rendered from
+  `README.qmd`.
+- `README.qmd` Quarto markdown README to edit and render into
+  `README.md`.
+- `_quarto.yml` Quarto project configuration file.
 - `pyproject.toml` Python project environment configuration file.
 - `uv.lock` Python project environment lockfile.
 
@@ -338,7 +336,7 @@ see it in your OS file explorer by default, but you will see it in the
 explorer in Positron). The `.gitignore` file is what controls which
 files and folders are pushed. Note that the [project
 template](https://github.com/marcdotson/project-template) also includes
-instructions for using the project environment and as a link to this
+instructions for using the project environment and has a link to this
 training.
 
 ### Issues
@@ -545,6 +543,34 @@ part of the document. Much like Jupyter notebooks, you can include
 Julia, Python, and R code as well as C++, Stan, and other code blocks
 and output. To run Python code only, specify `jupyter: python3` in the
 header YAML.
+
+> [!NOTE]
+>
+> ### Quarto Projects
+>
+> One quirk of using Quarto is that when you run code in the code blocks
+> vs. render the Quarto document into its specified format, the working
+> directory will be *different*. By default, the folder you have open in
+> the explorer is identified as the working directory for the code you
+> run in the code blocks. However, when you render the Quarto document
+> into its output, Quarto will think that the directory the Quarto
+> document is in is the working directory.
+>
+> This is especially a problem when you’re reading or writing data,
+> figures, etc. This is where [Quarto
+> projects](https://quarto.org/docs/projects/quarto-projects.html) come
+> in. At its simplest, a Quarto project allows you to share YAML
+> configurations across all the Quarto documents in a given project.
+> This is accomplished with a Quarto project configuration file in the
+> working directory called `_quarto.yml`. To make the working
+> directories consistent, the `_quarto.yml` file includes:
+>
+>     project:
+>       execute-dir: project
+>
+> This is applied to every Quarto document you render in the project,
+> and it’s already included in the [project
+> template](https://github.com/marcdotson/project-template).
 
 There are a variety of options for each code block. In addition to
 specifying the language used within the code block, the code block can
