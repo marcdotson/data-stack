@@ -7,11 +7,59 @@ This repository provides training for my recommended data stack, a collection of
 
 My recommended data stack consists of the following:
 
-- [Python](#sec-python) for data wrangling, visualizations, and modeling
 - [Positron](#sec-positron) as the integrated development environment (IDE)
+- [Python](#sec-python) for data wrangling, visualizations, and modeling
 - [GitHub](#sec-github) for version control, project management, and collaboration
 - [Quarto](#sec-quarto) for communicating results with presentations, reports, dashboards, etc.
 - [Copilot](#sec-copilot) for assisting with code development and data analysis
+
+## [Positron]{#sec-positron}
+
+A code editor or integrated development environment (IDE), outside of an open source language, is arguably your most important tool as a data analyst or data engineer. There are many options, but I recommend [Positron](https://positron.posit.co), a next-generation data science IDE. Built on VS Code's [open source core](https://github.com/microsoft/vscode), Positron combines the multilingual extensibility of [VS Code](https://code.visualstudio.com/) with essential data tools common to language-specific IDEs. After installing Python, [download](https://positron.posit.co/download.html) and install Positron.
+
+The following highlights some of Positron's essential data-friendly functionality. You can also watch [a quick tour of Positron](https://www.youtube.com/watch?v=4Ir_HX4riHw&t=1s). There is more that [Positron](https://positron.posit.co) can do, including connecting to databases and virtual machines. Note that since Positron is built on VS Code's open source core, VS Code's excellent [documentation](https://code.visualstudio.com/docs) remains largely relevant. However, since Positron is *actually* open source, there are certain proprietary VS Code extensions that aren't available in Positron. See the [Open VSX Registry](https://open-vsx.org) to search all available extensions.
+
+### Console and Session
+
+If you've used VS Code, Positron's layout will look familiar. When selected from the activity bar, the explorer on the left shows the folder you have open, which also establishes your working directory, and the central pane is the editor where you type and run code. Two obvious differences are the integrated console (in the bottom pane by default) and the session information (in the right pane by default), which includes details of the variables and data that have been loaded.
+
+![](figures/positron-01_console-session.png){width=90% fig-align="center"}
+
+The console is where the code executes while the terminal (i.e., command line, also in the bottom pane by default) also has the folder you have open in the explorer identified as the working directory (i.e., you don't need to manually navigate to the working directory via the terminal). The variables and data in the session information help you keep track of what you're working with.
+
+### Data Explorer
+
+You can click on the data frame icon to the right of any data you have loaded (or even CSV or Parquet files in the explorer without importing first) to open the data explorer.
+
+![](figures/positron-02_data-explorer.png){width=90% fig-align="center"}
+
+The data explorer is designed to facilitate coding, not replace it. The data explorer provides a summary of the data, including simple visualizations, and allows you to quickly sort and filter the data to inform programmatically going about data wrangling.
+
+### Plots
+
+Along with variables and data, the session information has a dedicated location for visualizations, including a history gallery to click through and easily compare previous plots. Visualizations can also be opened as a separate tab in the editor pane. This also includes support for interactive plots.
+
+![](figures/positron-03_plots.png){width=90% fig-align="center"}
+
+### Help
+
+Including a question mark after most any command in the console will open the help (in the right pane by default). This serves as a built-in browser to allow you to reference online documentation, including parameter definitions and examples you can copy and use.
+
+![](figures/positron-04_help.png){width=90% fig-align="center"}
+
+### Positron Assistant
+
+- Now Posit Assistant
+
+Positron Assistant is an AI tool integrated in Positron with contextual awareness of everything in your project. You can use Positron Assistant to ask questions, edit or refactor code, and function as an agent to accomplish specific tasks.
+
+![](figures/positron-05_positron-assistant.png){width=90% fig-align="center"}
+
+### Command Palette
+
+The command palette is the primary way to manage options (e.g., pane layout views and themes) and is a mainstay of the shortcut-heavy VS Code. Open with Cmd/Cntrl + Shift + P.
+
+![](figures/positron-06_command-palette.png){width=90% fig-align="center"}
 
 ## [Python]{#sec-python}
 
@@ -62,52 +110,6 @@ While there are many Python libraries, I recommend the following for the three c
 :::
 
 There is a *lot* more that [uv](https://docs.astral.sh/uv/) can do. For example, if you're starting with an existing project, run `uv run` for the libraries included in `uv.lock` to be automatically installed. And if someone is using another tool to install libraries instead of uv (e.g., pip), they will likely need a `requirements.txt` file or a `pylock.toml` file to reproduce the project environment, which you can create with `uv export --format requirements.txt` or `uv export -o pylock.toml`, respectively.
-
-## [Positron]{#sec-positron}
-
-A code editor or integrated development environment (IDE), outside of an open source language, is arguably your most important tool as a data analyst or data engineer. There are many options, but I recommend [Positron](https://positron.posit.co), a next-generation data science IDE. Built on VS Code's [open source core](https://github.com/microsoft/vscode), Positron combines the multilingual extensibility of [VS Code](https://code.visualstudio.com/) with essential data tools common to language-specific IDEs. After installing Python, [download](https://positron.posit.co/download.html) and install Positron.
-
-The following highlights some of Positron's essential data-friendly functionality. You can also watch [a quick tour of Positron](https://www.youtube.com/watch?v=4Ir_HX4riHw&t=1s). There is more that [Positron](https://positron.posit.co) can do, including connecting to databases and virtual machines. Note that since Positron is built on VS Code's open source core, VS Code's excellent [documentation](https://code.visualstudio.com/docs) remains largely relevant. However, since Positron is *actually* open source, there are certain proprietary VS Code extensions that aren't available in Positron. See the [Open VSX Registry](https://open-vsx.org) to search all available extensions.
-
-### Console and Session
-
-If you've used VS Code, Positron's layout will look familiar. When selected from the activity bar, the explorer on the left shows the folder you have open, which also establishes your working directory, and the central pane is the editor where you type and run code. Two obvious differences are the integrated console (in the bottom pane by default) and the session information (in the right pane by default), which includes details of the variables and data that have been loaded.
-
-![](figures/positron-01_console-session.png){width=90% fig-align="center"}
-
-The console is where the code executes while the terminal (i.e., command line, also in the bottom pane by default) also has the folder you have open in the explorer identified as the working directory (i.e., you don't need to manually navigate to the working directory via the terminal). The variables and data in the session information help you keep track of what you're working with.
-
-### Data Explorer
-
-You can click on the data frame icon to the right of any data you have loaded (or even CSV or Parquet files in the explorer without importing first) to open the data explorer.
-
-![](figures/positron-02_data-explorer.png){width=90% fig-align="center"}
-
-The data explorer is designed to facilitate coding, not replace it. The data explorer provides a summary of the data, including simple visualizations, and allows you to quickly sort and filter the data to inform programmatically going about data wrangling.
-
-### Plots
-
-Along with variables and data, the session information has a dedicated location for visualizations, including a history gallery to click through and easily compare previous plots. Visualizations can also be opened as a separate tab in the editor pane. This also includes support for interactive plots.
-
-![](figures/positron-03_plots.png){width=90% fig-align="center"}
-
-### Help
-
-Including a question mark after most any command in the console will open the help (in the right pane by default). This serves as a built-in browser to allow you to reference online documentation, including parameter definitions and examples you can copy and use.
-
-![](figures/positron-04_help.png){width=90% fig-align="center"}
-
-### Positron Assistant
-
-Positron Assistant is an AI tool integrated in Positron with contextual awareness of everything in your project. You can use Positron Assistant to ask questions, edit or refactor code, and function as an agent to accomplish specific tasks.
-
-![](figures/positron-05_positron-assistant.png){width=90% fig-align="center"}
-
-### Command Palette
-
-The command palette is the primary way to manage options (e.g., pane layout views and themes) and is a mainstay of the shortcut-heavy VS Code. Open with Cmd/Cntrl + Shift + P.
-
-![](figures/positron-06_command-palette.png){width=90% fig-align="center"}
 
 ## [GitHub]{#sec-github}
 
@@ -180,6 +182,8 @@ When you've completed work on the issue associated with the branch, create a [*p
 Note that when a branch is deleted on GitHub, it will still exist in your cloned repository. This isn't necessarily a problem, though if you commit changes to a closed branch it will force the branch open again. Remember to make sure you're working on the correct branch. Eventually you may want to clean up branches that have been merged into `main` and closed on GitHub by using `Git: Delete Branch...` via the command palette, followed by the branch name. You may also need to use `Git: Fetch` to prune tracking branches that are no longer on remote (i.e., on GitHub).
 
 ## [Quarto]{#sec-quarto}
+
+- Inline support turn on `positron.quarto.inlineOutput.enabled`
 
 [Quarto](https://quarto.org) is an open source publishing system where we can combine text along with code and its output. If you've used Jupyter notebooks, Quarto documents will be familiar. However, the most important difference is that the notebook format of a Quarto document is simply a means to an end. Quarto is built using a sophisticated tool called Pandoc that can take whatever we produce within the Quarto document and render it into a Word document, PowerPoint presentation, PDF, Revealjs slide deck, interactive dashboard, website, etc. Browse through the [gallery](https://quarto.org/docs/gallery/) to see what sort of things are possible.
 
