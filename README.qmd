@@ -3,79 +3,84 @@ title: "Data Stack"
 format: gfm
 ---
 
-This repository provides training for my recommended data stack, a collection of tools for working on data analytics projects. The intended audience is students in my courses at the [Jon M. Huntsman School of Business](https://huntsman.usu.edu) at [Utah State University](https://www.usu.edu), students that I'm mentoring on projects at the [Analytics Solutions Center](https://huntsman.usu.edu/asc/) (ASC), and collaborators on research projects.
+This repository provides training for my data stack, a collection of tools for working on data analytics projects. The intended audience is students in my courses at the [Jon M. Huntsman School of Business](https://huntsman.usu.edu) at [Utah State University](https://www.usu.edu), students that I'm mentoring on projects at the [Analytics Solutions Center](https://huntsman.usu.edu/asc/) (ASC), and collaborators on research projects.
 
-My recommended data stack consists of the following:
+My data stack consists of the following:
 
 - [Positron](#sec-positron) as the integrated development environment (IDE)
 - [Python](#sec-python) for data wrangling, visualizations, and modeling
-- [GitHub](#sec-github) for version control, project management, and collaboration
 - [Quarto](#sec-quarto) for communicating results with presentations, reports, dashboards, etc.
-- [Copilot](#sec-copilot) for assisting with code development and data analysis
+- [GitHub](#sec-github) for version control, project management, and collaboration
+
+Every modern data stack includes one or more AI tools. For example, all Utah State students have access to [Copilot](https://copilot.usu.edu/) and Notebook.lm. While AI can help learning and productivity (e.g., drafting and debugging code), it can be harmful. AI is dangerous when we use it to replace rather than supplement thinking and decision-making, especially when we don't know enough about a topic to evaluate what the AI generates. If you use AI tools, be thoughtful and transparent, including reviewing what the AI generates and citing the AI tool you use.
 
 TODO:
 
-- Start with Positron
-- Reference the Packages pane
+- Reference the Packages, Connections panes
 - Visualization recommendation as plotnine
 - Update Positron Assistant to Posit Assistant
 - Reference Positron's uv bootstrap options in Python
+- Reference existing project and environment templates?
 - Consider moving the Quarto section ahead of GitHub?
 - Add reports to the project template for class and the ASC
 - Inline support turn on `positron.quarto.inlineOutput.enabled`
 - Reference button for adding code cells, dropdown for other options
 - Make the AI section general (reference the AI site Chris shared)
 - Discuss human readable code
+- Recreate Positron screenshots
 
 ## [Positron]{#sec-positron}
 
-A code editor or integrated development environment (IDE), outside of an open source language, is arguably your most important tool as a data analyst or data engineer. There are many options, but I recommend [Positron](https://positron.posit.co), a next-generation data science IDE. Built on VS Code's [open source core](https://github.com/microsoft/vscode), Positron combines the multilingual extensibility of [VS Code](https://code.visualstudio.com/) with essential data tools common to language-specific IDEs. After installing Python, [download](https://positron.posit.co/download.html) and install Positron.
+A **code editor** or **integrated development environment (IDE)** is arguably your most important tool. A good IDE provides a single tool for writing and running code, including communicating results and implementing version control. There are many options, but I use [Positron](https://positron.posit.co), a next-generation data science IDE. Built on VS Code's [open source core](https://github.com/microsoft/vscode), Positron combines the multilingual extensibility of [VS Code](https://code.visualstudio.com/) with essential data tools common to language-specific IDEs.
 
-The following highlights some of Positron's essential data-friendly functionality. You can also watch [a quick tour of Positron](https://www.youtube.com/watch?v=4Ir_HX4riHw&t=1s). There is more that [Positron](https://positron.posit.co) can do, including connecting to databases and virtual machines. Note that since Positron is built on VS Code's open source core, VS Code's excellent [documentation](https://code.visualstudio.com/docs) remains largely relevant. However, since Positron is *actually* open source, there are certain proprietary VS Code extensions that aren't available in Positron. See the [Open VSX Registry](https://open-vsx.org) to search all available extensions.
+Get started by [downloading](https://positron.posit.co/download.html) and installing Positron and walking through the following highlights of some of Positron's essential features, especially its data-friendly functionality.
 
 ### Console and Session
 
-If you've used VS Code, Positron's layout will look familiar. When selected from the activity bar, the explorer on the left shows the folder you have open, which also establishes your working directory, and the central pane is the editor where you type and run code. Two obvious differences are the integrated console (in the bottom pane by default) and the session information (in the right pane by default), which includes details of the variables and data that have been loaded.
+If you've used VS Code, Positron's layout will look familiar. When selected from the activity bar, the explorer on the left shows the folder you have open, which also establishes your **working directory** (the location on your machine for your project files) and the central pane is the editor where you type and run code. Two obvious differences are the console (in the bottom panel by default) and the session (in the secondary side bar on the right by default).
 
 ![](figures/positron-01_console-session.png){width=90% fig-align="center"}
 
-The console is where the code executes while the terminal (i.e., command line, also in the bottom pane by default) also has the folder you have open in the explorer identified as the working directory (i.e., you don't need to manually navigate to the working directory via the terminal). The variables and data in the session information help you keep track of what you're working with.
+The console is where code runs and is separate from the **terminal** (also called the command line, in the bottom panel by default), which is used to interact with your operating system to do things like install Python libraries. There is no console in VS Code and so code also runs in the terminal, which often means you have multiple terminals running for different purposes. The session displays the data you've loaded and plots you've created.
 
 ### Data Explorer
 
-You can click on the data frame icon to the right of any data you have loaded (or even CSV or Parquet files in the explorer without importing first) to open the data explorer.
+You can click on the data frame icon to the right of any data you've loaded (or even CSV and Parquet files in the explorer without needing to load them first) to open the data explorer.
 
 ![](figures/positron-02_data-explorer.png){width=90% fig-align="center"}
 
-The data explorer is designed to facilitate coding, not replace it. The data explorer provides a summary of the data, including simple visualizations, and allows you to quickly sort and filter the data to inform programmatically going about data wrangling.
+The data explorer is designed to facilitate coding, not replace it. The data explorer provides a summary of the data, including simple visualizations, and allows you to quickly sort and filter the data to inform programmatically going about data wrangling. If you want to implement any changes you make using the data explorer in code, click the **convert to code** button in to the action bar at the top.
 
 ### Plots
 
-Along with variables and data, the session information has a dedicated location for visualizations, including a history gallery to click through and easily compare previous plots. Visualizations can also be opened as a separate tab in the editor pane. This also includes support for interactive plots.
+Along with data, the session has a dedicated pane for visualizations, including a history gallery to click through and easily compare previous plots. Visualizations can also be opened as a separate tab in the editor pane. This includes support for interactive plots.
 
 ![](figures/positron-03_plots.png){width=90% fig-align="center"}
 
 ### Help
 
-Including a question mark after most any command in the console will open the help (in the right pane by default). This serves as a built-in browser to allow you to reference online documentation, including parameter definitions and examples you can copy and use.
+Including a question mark after most any command in the console will open the help (in the secondary side bar on the right by default). This serves as a built-in web browser to allow you to reference online documentation, including parameter definitions and examples you can copy and use.
 
 ![](figures/positron-04_help.png){width=90% fig-align="center"}
 
-### Positron Assistant
+### Posit Assistant
 
-- Now Posit Assistant
-
-Positron Assistant is an AI tool integrated in Positron with contextual awareness of everything in your project. You can use Positron Assistant to ask questions, edit or refactor code, and function as an agent to accomplish specific tasks.
+Posit Assistant is an AI tool integrated in Positron with contextual awareness of everything in your project. You can use Posit Assistant to ask questions, edit code, and function as an agent to accomplish specific tasks.
 
 ![](figures/positron-05_positron-assistant.png){width=90% fig-align="center"}
 
 ### Command Palette
 
-The command palette is the primary way to manage options (e.g., pane layout views and themes) and is a mainstay of the shortcut-heavy VS Code. Open with Cmd/Cntrl + Shift + P.
+The command palette is the primary way to manage options (e.g., customize layout and themes) and is a mainstay of the shortcut-heavy VS Code. Open with Cmd/Cntrl + Shift + P.
 
 ![](figures/positron-06_command-palette.png){width=90% fig-align="center"}
 
+There is more that [Positron](https://positron.posit.co/welcome.html) can do, including [connecting to databases](https://positron.posit.co/connections-pane.html) and [remoting into virtual machines](https://positron.posit.co/remote-ssh.html). Additionally, since Positron is built on VS Code's open source core, VS Code's excellent [documentation](https://code.visualstudio.com/docs) remains largely relevant. However, since Positron is open source, there are certain proprietary VS Code extensions that aren't available in Positron. See the [Open VSX Registry](https://open-vsx.org) to search all available extensions.
+
 ## [Python]{#sec-python}
+
+- What happens if you don't have uv installed?
+- "Python: Install Python via uv"
 
 Installing Python can be challenging, even for advanced users. As immortalized by [xkcd](https://xkcd.com):
 
@@ -252,12 +257,3 @@ If you need to include any math, you shouldn't be surprised that there's a types
 $$
 p(\theta | X) \propto p(X | \theta) \ p(\theta)
 $$
-
-## [Copilot]{#sec-copilot}
-
-Everyone has their preferred AI tools. All Utah State students have access to [Copilot](https://copilot.usu.edu/). Cleary AI can contribute to learning and productivity. AI tools are especially helpful for drafting and debugging code and explaining concepts in new ways. However, AI can also be a detriment to learning and productivity. AI is at its most dangerous when we use it to replace rather than supplement thinking.
-
-I've found that there is a Goldilocks zone for using AI tools like Copilot. When you know very little about a topic, AI can be dangerous because it can provide answers that sound plausible but you don't know enough to evaluate the information. When you know a lot about a topic, AI can be unreliable and slow you down because it can easily hallucinate. AI can be most helpful when you know enough about a topic to be able to evaluate the information while also needing the help.
-
-However you use AI, be careful, thoughtful, and transparent about it, including questioning results and citing it as a source -- but not the only source -- for information.
-
