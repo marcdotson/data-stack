@@ -13,6 +13,20 @@ My recommended data stack consists of the following:
 - [Quarto](#sec-quarto) for communicating results with presentations, reports, dashboards, etc.
 - [Copilot](#sec-copilot) for assisting with code development and data analysis
 
+TODO:
+
+- Start with Positron
+- Reference the Packages pane
+- Visualization recommendation as plotnine
+- Update Positron Assistant to Posit Assistant
+- Reference Positron's uv bootstrap options in Python
+- Consider moving the Quarto section ahead of GitHub?
+- Add reports to the project template for class and the ASC
+- Inline support turn on `positron.quarto.inlineOutput.enabled`
+- Reference button for adding code cells, dropdown for other options
+- Make the AI section general (reference the AI site Chris shared)
+- Discuss human readable code
+
 ## [Positron]{#sec-positron}
 
 A code editor or integrated development environment (IDE), outside of an open source language, is arguably your most important tool as a data analyst or data engineer. There are many options, but I recommend [Positron](https://positron.posit.co), a next-generation data science IDE. Built on VS Code's [open source core](https://github.com/microsoft/vscode), Positron combines the multilingual extensibility of [VS Code](https://code.visualstudio.com/) with essential data tools common to language-specific IDEs. After installing Python, [download](https://positron.posit.co/download.html) and install Positron.
@@ -182,8 +196,6 @@ When you've completed work on the issue associated with the branch, create a [*p
 Note that when a branch is deleted on GitHub, it will still exist in your cloned repository. This isn't necessarily a problem, though if you commit changes to a closed branch it will force the branch open again. Remember to make sure you're working on the correct branch. Eventually you may want to clean up branches that have been merged into `main` and closed on GitHub by using `Git: Delete Branch...` via the command palette, followed by the branch name. You may also need to use `Git: Fetch` to prune tracking branches that are no longer on remote (i.e., on GitHub).
 
 ## [Quarto]{#sec-quarto}
-
-- Inline support turn on `positron.quarto.inlineOutput.enabled`
 
 [Quarto](https://quarto.org) is an open source publishing system where we can combine text along with code and its output. If you've used Jupyter notebooks, Quarto documents will be familiar. However, the most important difference is that the notebook format of a Quarto document is simply a means to an end. Quarto is built using a sophisticated tool called Pandoc that can take whatever we produce within the Quarto document and render it into a Word document, PowerPoint presentation, PDF, Revealjs slide deck, interactive dashboard, website, etc. Browse through the [gallery](https://quarto.org/docs/gallery/) to see what sort of things are possible.
 
