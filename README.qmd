@@ -16,7 +16,7 @@ Every modern data stack includes one or more AI tools. For example, all Utah Sta
 
 TODO:
 
-- Reference the Packages, Connections panes
+- Reference the Packages pane
 - Visualization recommendation as plotnine
 - Update Positron Assistant to Posit Assistant
 - Reference Positron's uv bootstrap options in Python
