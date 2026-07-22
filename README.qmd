@@ -17,19 +17,20 @@ Every modern data stack includes one or more AI tools. For example, all Utah Sta
 TODO:
 
 •	Update the data stack and make it required.
-o	Start the data stack with Positron and its Python bootstrap via uv.
 	Consider JupyterHub (or Posit Cloud or codespaces) to start.
 	See https://github.com/posit-dev/positron/pull/13895.
-o	Reference the upcoming packages pane within Positron?
-o	Reference the upcoming Posit Assistant within Positron?
-o	Reference the in-line support for Quarto in Positron’s notebook editor.
 
-- Reference the Packages pane
+- Reference Positron's [uv bootstrap options in Python](https://opensource.posit.co/blog/2026-07-08_positron-uv/)
+  + This includes a change to `project-template` .venv setup?
+  + Ruff code linter is also included -- how to enable?
+- Open Excel and other files into the Data Explorer
+- Open PDF files into the Viewer
+- Reference the Packages pane (like extensions)
 - Visualization recommendation as plotnine
 - Update Positron Assistant to Posit Assistant
-- Reference Positron's uv bootstrap options in Python
 - Reference existing project and environment templates?
 - Consider moving the Quarto section ahead of GitHub?
+- Reference the in-line support for Quarto in Positron’s notebook editor
 - Add reports to the project template for class and the ASC
 - Inline support turn on `positron.quarto.inlineOutput.enabled`
 - Reference button for adding code cells, dropdown for other options
