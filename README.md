@@ -145,6 +145,15 @@ Code. Open with Cmd/Ctrl + Shift + P.
 <img src="figures/positron-08_command-palette.png" style="width:90.0%"
 data-fig-align="center" />
 
+### Customize Layout
+
+In the upper-right corner are a set of icons to customize the layout of
+Positron, including a number of layout presets and toggles for side bars
+and panels.
+
+<img src="figures/positron-09_customize-layout.png" style="width:90.0%"
+data-fig-align="center" />
+
 There is more that [Positron](https://positron.posit.co/welcome.html)
 can do, including [connecting to
 databases](https://positron.posit.co/connections-pane.html) and
@@ -166,10 +175,9 @@ and other reasons, you’ll need the ability to install and maintain
 multiple versions of Python on the same computer.
 
 There are many ways to install and maintain Python versions. However,
-[uv](https://docs.astral.sh/uv/) has emerged as the industry standard
-for installing and managing Python versions. Get started by opening the
-command palette in Positron (Cmd/Ctrl + Shift + P) and selecting
-“Install Python via uv.”
+[uv](https://docs.astral.sh/uv/) has emerged as the industry standard.
+Get started by opening the command palette in Positron (Cmd/Ctrl +
+Shift + P) and running “Install Python via uv.”
 
 <img src="figures/python-01_install-python-via-uv.png"
 style="width:90.0%" data-fig-align="center" />
@@ -197,12 +205,12 @@ Methods are functions nested within **object types** and are namespaced
 with an object name of the given type as in `object.method()`. For
 example, using the Polars select method in
 `customer_data.select(pl.col('income'))` to select the `income` column
-in the `customer_data` data frame object.
+in the `customer_data` dataframe object.
 
 Besides functions and methods, **attributes** are object-specific
 features and are, like methods, namespaced with an object name of the
 given type as in `object.attribute`, but without any parentheses. For
-example, the dimensions of the `customer_data` data frame object can be
+example, the column names of the `customer_data` dataframe object can be
 referenced with `customer_data.columns`.
 
 ### Libraries
@@ -259,13 +267,105 @@ data-fig-align="center" />
 
 This list includes libraries you’ve installed, the libraries that come
 pre-installed with Python, and any **dependencies** or the libraries
-that those libraries depend on. You can also see which libraries you can
-update.
+that those libraries depend on. You can also see which libraries have
+newer versions you can update to.
 
-### Human-Readable Code
+### Project Environments
 
-- Discuss human readable code, including consecutive lines of code, not
-  functions
+In order for our code to be **reproducible**, we need to maintain
+**project environments**. A project environment is composed of both
+Python and the libraries (including the dependencies) used for a given
+project. What makes a project environment reproducible is keeping track
+of the Python and library versions we’re using for a given project so
+that it can be easily reproduced on another machine by you (including
+future you) or someone else. You can set up your own project environment
+or use an existing one, like the one included when you use my [project
+template](https://github.com/marcdotson/project-template). If you aren’t
+using my project template, it’s still easy to set up and manage a
+project environment with uv.
+
+1.  Open the project working directory in Positron. Note that this
+    working directory *should not* be in a location on your local
+    machine that is being synced to the cloud via OneDrive, iCloud, etc.
+2.  Run `uv init` in the terminal to initialize a project environment.
+    This creates a `pyproject.toml` file with metadata about the project
+    and a hidden `.python-version` file that specifies the default
+    version of Python for the project. (It also creates `main.py` and
+    `README.md` files that you can use or delete.)
+3.  With the project environment initialized, you can install libraries.
+    For example, running `uv add polars` via the terminal installs
+    Polars (and any dependencies) and creates both a `uv.lock` file that
+    keeps track of the versions of the libraries you’ve installed and a
+    hidden `/.venv` reproducible (or *virtual*, hence the “v” in venv)
+    environment folder that serves as the **project library**.
+
+All Python libraries are installed in a single, global library on your
+computer known as the **system library**. The fact that we have a
+*project library* highlights an important feature of making project
+environments reproducible: Each project will have its own project
+library and thus be isolated. If two projects use different versions of
+the same package, they won’t conflict with each other because they’ll
+each have their own project library. (Well, not exactly. Python employs
+a global cache to avoid having to install the same version of a given
+library more than once. The project library will reference the global
+cache.) Whenever you install new libraries for your project, the
+`uv.lock` file is automatically updated.
+
+If you are using an existing project environment maintained by uv,
+including ones based on my [project
+template](https://github.com/marcdotson/project-template), you simply
+need to open the project working directory in Positron and run `uv run`
+in the terminal. This will install the correct `.python-version` if you
+don’t have it, create the hidden `/.venv` project library, and install
+the correct versions of the needed libraries as specified in the
+`uv.lock` file.
+
+<img src="figures/python-04_uv-run.png" style="width:90.0%"
+data-fig-align="center" />
+
+There is a *lot* more that [uv](https://docs.astral.sh/uv/) can do. You
+can manually install specific versions of Python, such as
+`uv python install 3.13.4` to install Python 3.13.4, and view Python
+versions that are available to install with `uv python list`. If someone
+is using another tool to install libraries instead of uv (e.g., pip),
+they will likely need a `requirements.txt` file or a `pylock.toml` file
+to reproduce the project environment, which you can generate for them
+with `uv export --format requirements.txt` or
+`uv export -o pylock.toml`, respectively.
+
+### Efficiency vs. Readability
+
+Just like different application use different Python libraries, so do
+different applications lend themselves to different coding styles. For
+example, the code that runs the transaction backend for the payment
+system of an online application needs to be incredibly **efficient** and
+secure since its managing sensitive information and being at a high
+frequency. On the other hand, the code for a data analysis with
+moderate-sized data, even if the resulting report is reproduced often,
+runs very infrequently so efficiency takes a back seat to the code being
+**readable**.
+
+Code used in production must be efficient, but often at the cost of it
+being readable – especially when custom functions are created. Code use
+in data analysis needs to be readable, often because it doesn’t need to
+be incredibly efficient. This is important if you are coding with the
+help of an AI tool, which will naturally gravitate toward needless
+efficiency and an overabundance of code I refer to as **AI bloat**. As
+you code for data analysis, focus on readability. You’ll be more
+productive when working with AI tools since you should be able to better
+understand the output.
+
+Perhaps the most readable code is produced with a technique called
+**method chaining**. Instead of saving out intermediate objects for
+every step in a set of method calls, just string them all together.
+
+<img src="figures/python-05_method-chaining.png" style="width:90.0%"
+data-fig-align="center" />
+
+The resulting code, which has to be enclosed in parentheses, can be read
+like a sentence as we move from one method to the next. Method chaining
+is enabled by Polars syntax and is mirrored in the composition of
+Plotnine’s grammar of graphics.
 
 > [!TIP]
 >
@@ -274,7 +374,7 @@ update.
 > Python might be the most commonly used open source programming
 > language for data wrangling, visualizations, and modeling – but it’s
 > not the only one. The three most popular languages for data analytics
-> are Julia, Python, and R (the Jupyter kernel was named for and
+> are Julia, Python, and R (the **Jupyter** kernel was named for and
 > designed to support all three). Each language comes with its own
 > tradeoffs, culture, and overall vibe.
 >
@@ -290,60 +390,6 @@ update.
 > a second. For example, see [how I learned Python coming from a
 > background using
 > R](https://occasionaldivergences.com/posts/python-intro/).
-
-### Project Environments
-
-<!-- Once you have uv installed, it's easy to install and manage Python versions.
-&#10;- To install the latest stable release of Python, on the command line, run `uv python install`. To see which versions of Python you already have installed, run `uv python find`; none of these will be the off-limits OS version.
-- You can also install specific versions of Python, such as `uv python install 3.13.4` to install Python 3.13.4. To view Python versions that are available to install, run `uv python list`. -->
-
-You can also use uv to manage project environments and make them
-reproducible. A project environment is composed of the language(s) and
-libraries (including the dependencies) used for a given project. What
-makes a project environment reproducible is keeping track of which
-*version* of the language(s) and the libraries we’re using for a given
-project so that it can be easily reproduced on another machine by you
-(including future you) or someone else. You can set up your own project
-environment or use an existing one, like the one included when you use
-my [project template](https://github.com/marcdotson/project-template).
-If you aren’t using my project template, it’s still easy to set up and
-manage a project environment.
-
-- Navigate to a project working directory via the command line or using
-  a code editor or IDE like [Positron](#sec-positron). This working
-  directory *should not* be in a location on your local machine that is
-  being synced to the cloud via OneDrive, iCloud, etc.
-- Run `uv init` to initialize a project environment. This creates a
-  `pyproject.toml` file with metadata about the project and a hidden
-  `.python-version` file that specifies the default version of Python
-  for the project. (It also creates `main.py` and `README.md` files that
-  you can use or delete.)
-- With the project environment initialized, you can install libraries.
-  For example, to install the Polars library, run `uv add polars`. This
-  installs Polars, and any dependencies, and creates both a `uv.lock`
-  file that keeps track of the versions of the libraries you’ve
-  installed and a hidden `.venv` reproducible (or *virtual*, hence the
-  “v” in venv) environment folder that serves as the project library.
-
-All Python libraries are installed in a single, global library on your
-computer known as the *system library*. The fact that we have a *project
-library* highlights an important feature of making project environments
-reproducible: Each project will have its own project library and thus be
-*isolated*. If two projects use different versions of the same package,
-they won’t conflict with each other because they’ll each have their own
-project library. (Well, not *exactly*. Python employs a global cache to
-avoid having to install the same version of a given library more than
-once. The project library will reference the global cache.) Whenever you
-install new libraries, the `uv.lock` file is automatically updated.
-
-There is a *lot* more that [uv](https://docs.astral.sh/uv/) can do. For
-example, if you’re starting with an existing project, run `uv run` for
-the libraries included in `uv.lock` to be automatically installed. And
-if someone is using another tool to install libraries instead of uv
-(e.g., pip), they will likely need a `requirements.txt` file or a
-`pylock.toml` file to reproduce the project environment, which you can
-create with `uv export --format requirements.txt` or
-`uv export -o pylock.toml`, respectively.
 
 ## <span id="sec-quarto">Quarto</span>
 
