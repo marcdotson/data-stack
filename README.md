@@ -1,49 +1,33 @@
 # Data Stack
 
 
-This repository provides training for my data stack, a collection of
-tools for working on data analytics projects. The intended audience is
-students in my courses at the [Jon M. Huntsman School of
-Business](https://huntsman.usu.edu) at [Utah State
+This repository provides training for setting up and using the following
+data stack, a collection of tools for working on data analytics
+projects. The intended audience is students in my courses at the [Jon M.
+Huntsman School of Business](https://huntsman.usu.edu) at [Utah State
 University](https://www.usu.edu), students that I’m mentoring on
 projects at the [Analytics Solutions
 Center](https://huntsman.usu.edu/asc/) (ASC), and collaborators on
 research projects.
 
-My data stack consists of the following:
+The data stack consists of the following:
 
-- [Positron](#sec-positron) as the integrated development environment
-  (IDE)
+- [Positron](#sec-positron) as the code editor or integrated development
+  environment
 - [Python](#sec-python) for data wrangling, visualizations, and modeling
 - [Quarto](#sec-quarto) for communicating results with presentations,
   reports, dashboards, etc.
 - [GitHub](#sec-github) for version control, project management, and
   collaboration
 
-Every modern data stack includes one or more AI tools. For example, all
-Utah State students have access to [Copilot](https://copilot.usu.edu/)
-and Notebook.lm. While AI can help learning and productivity (e.g.,
-drafting and debugging code), it can be harmful. AI is dangerous when we
-use it to replace rather than supplement thinking and decision-making,
-especially when we don’t know enough about a topic to evaluate what the
-AI generates. If you use AI tools, be thoughtful and transparent,
-including reviewing what the AI generates and citing the AI tool you
-use.
-
-TODO:
-
-- Reference the Packages pane
-- Visualization recommendation as plotnine
-- Update Positron Assistant to Posit Assistant
-- Reference Positron’s uv bootstrap options in Python
-- Reference existing project and environment templates?
-- Consider moving the Quarto section ahead of GitHub?
-- Add reports to the project template for class and the ASC
-- Inline support turn on `positron.quarto.inlineOutput.enabled`
-- Reference button for adding code cells, dropdown for other options
-- Make the AI section general (reference the AI site Chris shared)
-- Discuss human readable code
-- Recreate Positron screenshots
+Every modern data stack includes AI tools. All Utah State students have
+[access to a specific set](https://www.usu.edu/ai/tools). While AI can
+help learning and productivity (e.g., drafting and debugging code), it
+can also be harmful. AI is dangerous when we use it to replace rather
+than supplement thinking and decision-making, especially when we don’t
+know enough about a topic to evaluate what the AI generates. If you use
+AI tools, be thoughtful and transparent, including reviewing what the AI
+generates and citing the AI tool you use.
 
 ## <span id="sec-positron">Positron</span>
 
@@ -65,78 +49,100 @@ functionality.
 ### Console and Session
 
 If you’ve used VS Code, Positron’s layout will look familiar. When
-selected from the activity bar, the explorer on the left shows the
-folder you have open, which also establishes your **working directory**
-(the location on your machine for your project files) and the central
-pane is the editor where you type and run code. Two obvious differences
-are the console (in the bottom panel by default) and the session (in the
-secondary side bar on the right by default).
+selected from the vertical activity bar, the explorer on the left shows
+the folder you have open, which also establishes your **working
+directory** (i.e., the location on your machine for your project files).
+The editor in the center is where you code. Two obvious differences are
+the console (in the bottom panel by default) and the session (on the
+right by default).
 
 <img src="figures/positron-01_console-session.png" style="width:90.0%"
 data-fig-align="center" />
 
 The console is where code runs and is separate from the **terminal**
-(also called the command line, in the bottom panel by default), which is
-used to interact with your operating system to do things like install
-Python libraries. There is no console in VS Code and so code also runs
-in the terminal, which often means you have multiple terminals running
-for different purposes. The session displays the data you’ve loaded and
-plots you’ve created.
+(also called the command line or shell, in the bottom panel by default),
+which is used to interact with your operating system to do things
+outside running code, like installing Python libraries. There is no
+console in VS Code and so code also runs in the terminal, which often
+means you have multiple terminals running for different purposes. The
+session displays the variables (e.g., data, functions, and methods)
+you’ve loaded and plots you’ve created.
 
 ### Data Explorer
 
 You can click on the data frame icon to the right of any data you’ve
-loaded (or even CSV and Parquet files in the explorer without needing to
-load them first) to open the data explorer.
+loaded in the session to open the data explorer. The data explorer
+provides a summary of the data, including simple visualizations, and
+allows you to quickly sort and filter the data to inform data wrangling.
 
 <img src="figures/positron-02_data-explorer.png" style="width:90.0%"
 data-fig-align="center" />
 
-The data explorer is designed to facilitate coding, not replace it. The
-data explorer provides a summary of the data, including simple
-visualizations, and allows you to quickly sort and filter the data to
-inform programmatically going about data wrangling. If you want to
-implement any changes you make using the data explorer in code, click
-the **convert to code** button in to the action bar at the top.
+The data explorer is designed to facilitate coding, not replace it. If
+you want to implement any of the sorting, filtering, etc. you make using
+the data explorer in code, click the **convert to code** button in to
+the action bar at the top.
+
+You can also click on Excel, comma-separated value (CSV), Parquet, PDF,
+and other files in your working directory to view them without needing
+to load them or use another program.
+
+<img src="figures/positron-03_file-viewer.png" style="width:90.0%"
+data-fig-align="center" />
 
 ### Plots
 
-Along with data, the session has a dedicated pane for visualizations,
-including a history gallery to click through and easily compare previous
-plots. Visualizations can also be opened as a separate tab in the editor
-pane. This includes support for interactive plots.
+Along with variables, the session has a dedicated pane for
+visualizations, including a history gallery to click through and easily
+compare previous plots. Visualizations can also be opened as a separate
+tab in the editor pane. This includes support for interactive plots.
 
-<img src="figures/positron-03_plots.png" style="width:90.0%"
+<img src="figures/positron-04_plots.png" style="width:90.0%"
 data-fig-align="center" />
 
 ### Help
 
-Including a question mark after most any command in the console will
-open the help (in the secondary side bar on the right by default). This
+Including a question mark after most any function, method, or attribute
+in the console will open the help (on the right by default). The help
 serves as a built-in web browser to allow you to reference online
 documentation, including parameter definitions and examples you can copy
 and use.
 
-<img src="figures/positron-04_help.png" style="width:90.0%"
+<img src="figures/positron-05_help.png" style="width:90.0%"
 data-fig-align="center" />
 
 ### Posit Assistant
 
-Posit Assistant is an AI tool integrated in Positron with contextual
-awareness of everything in your project. You can use Posit Assistant to
-ask questions, edit code, and function as an agent to accomplish
-specific tasks.
+Posit Assistant, selected from the vertical activity bar, is an AI tool
+integrated in Positron with contextual awareness of everything in your
+working directory. You can use Posit Assistant to ask questions, edit
+code, and function as an agent to accomplish specific tasks. It can use
+a variety of providers to interact with your data and code.
 
-<img src="figures/positron-05_positron-assistant.png"
-style="width:90.0%" data-fig-align="center" />
+<img src="figures/positron-06_posit-assistant.png" style="width:90.0%"
+data-fig-align="center" />
+
+### Extensions
+
+VS Code, and thus Positron, is highly extensible. Installed extensions
+are visible when selected from the vertical activity bar, along with the
+ability to search additional available extensions.
+
+<img src="figures/positron-07_extensions.png" style="width:90.0%"
+data-fig-align="center" />
+
+Since Positron is open source, there are certain proprietary VS Code
+extensions that aren’t available in Positron. The search functionality
+references the [Open VSX Registry](https://open-vsx.org) for all
+available extensions.
 
 ### Command Palette
 
-The command palette is the primary way to manage options (e.g.,
+The **command palette** is the primary way to manage options (e.g.,
 customize layout and themes) and is a mainstay of the shortcut-heavy VS
-Code. Open with Cmd/Cntrl + Shift + P.
+Code. Open with Cmd/Ctrl + Shift + P.
 
-<img src="figures/positron-06_command-palette.png" style="width:90.0%"
+<img src="figures/positron-08_command-palette.png" style="width:90.0%"
 data-fig-align="center" />
 
 There is more that [Positron](https://positron.posit.co/welcome.html)
@@ -146,61 +152,120 @@ databases](https://positron.posit.co/connections-pane.html) and
 machines](https://positron.posit.co/remote-ssh.html). Additionally,
 since Positron is built on VS Code’s open source core, VS Code’s
 excellent [documentation](https://code.visualstudio.com/docs) remains
-largely relevant. However, since Positron is open source, there are
-certain proprietary VS Code extensions that aren’t available in
-Positron. See the [Open VSX Registry](https://open-vsx.org) to search
-all available extensions.
+largely relevant.
 
 ## <span id="sec-python">Python</span>
 
-- What happens if you don’t have uv installed?
-- “Python: Install Python via uv”
+<!-- - Ruff code linter is also included -- need to enable? -->
 
-Installing Python can be challenging, even for advanced users. As
-immortalized by [xkcd](https://xkcd.com):
+Python is a general purpose, **open source programming language**, often
+referred to as “the second-best language for everything.” Notably,
+Python comes pre-installed on some operating systems (OS). This version
+*should not be used or modifed* by anyone except the OS itself. For this
+and other reasons, you’ll need the ability to install and maintain
+multiple versions of Python on the same computer.
 
-<p align="center">
+There are many ways to install and maintain Python versions. However,
+[uv](https://docs.astral.sh/uv/) has emerged as the industry standard
+for installing and managing Python versions. Get started by opening the
+command palette in Positron (Cmd/Ctrl + Shift + P) and selecting
+“Install Python via uv.”
 
-<img src="figures/xkcd_python-env.png" width="400">
-</p>
+<img src="figures/python-01_install-python-via-uv.png"
+style="width:90.0%" data-fig-align="center" />
 
-Notably, Python comes pre-installed on some operating systems (OS). This
-version *should not be used* by anyone except the OS itself. For this
-and other reasons, you’ll need the ability to maintain multiple versions
-of Python on the same computer. Python is a big tent, and there are many
-ways to install and maintain versions. I recommend using
-[uv](https://docs.astral.sh/uv/), a single unified tool for installing
-and managing both Python versions and project environments. Get started
-by [installing
-uv](https://docs.astral.sh/uv/getting-started/installation/) via the
-command line.
+This command installs uv and the latest version of Python for you via
+the terminal. Note that the needed extension to run Python in Positron
+comes pre-installed. The following highlights of some of Python’s
+essential features for data analysis.
 
-> [!NOTE]
->
-> ### The Command Line
->
-> If using the command line (i.e., terminal or shell) is new to you, be
-> patient, take your time, and follow instructions from a trusted source
-> closely. A few things that might help:
->
-> - The command line is the programming interface into your OS itself.
->   You don’t have to know everything about it to follow instructions.
-> - Instructions can be different based on the *type* of command line.
->   If you’re on a Mac that’s running macOS Catalina 10.15.7 or later,
->   the terminal is Zsh. If you’re using Linux, the shell is Bash (and
->   you probably already know that). And if you’re using Windows you’re
->   working with PowerShell.
+### Functions and Methods
 
-Once you have uv installed, it’s easy to install and manage Python
-versions.
+Most of the coding we do for data analysis uses **functions**, where the
+input is some data and the output is some transformation, visualization,
+or model results. However, Python is an **object-oriented programming
+language**, meaning there is a difference between functions and
+**methods**, a kind of function that only works for specific objects.
 
-- To install the latest stable release of Python, on the command line,
-  run `uv python install`. To see which versions of Python you already
-  have installed, run `uv python find`; none of these will be the
-  off-limits OS version.
-- You can also install specific versions of Python, such as
-  `uv python install 3.13.4` to install Python 3.13.4. To view Python
-  versions that are available to install, run `uv python list`.
+Python functions are typically **namespaced**, meaning the name of the
+library they’re from is referenced with the function, as in
+`library.function()`. Functions can also be namespaced with the
+**alias** of the library that was set when the library was imported. For
+example, using the Polars alias `pl` in
+`pl.read_csv('customer_data.csv')` to read in `customer_data.csv`.
+Methods are functions nested within **object types** and are namespaced
+with an object name of the given type as in `object.method()`. For
+example, using the Polars select method in
+`customer_data.select(pl.col('income'))` to select the `income` column
+in the `customer_data` data frame object.
+
+Besides functions and methods, **attributes** are object-specific
+features and are, like methods, namespaced with an object name of the
+given type as in `object.attribute`, but without any parentheses. For
+example, the dimensions of the `customer_data` data frame object can be
+referenced with `customer_data.columns`.
+
+### Libraries
+
+Python is a big tent, meaning it is used for many applications and not
+just data analytics. As an open source programming language, there are a
+lot of different **libraries** or **packages** that have been developed
+by users to facilitate coding for different applications. Each library
+or package is a set of functions, methods, documentation, and sometimes
+data. While there are many Python libraries, I recommend the following
+for the three data analytics tasks.
+
+- **Data Wrangling**: [Polars](https://pola.rs/) is a fast,
+  self-consistent library for data wrangling (i.e., cleaning and
+  manipulating data) that is growing in popularity as an alternative to
+  [pandas](https://pandas.pydata.org). Additionally, when you read in
+  data to wrangle, be sure to write **relative file paths** using
+  [pyhere](https://pypi.org/project/pyhere/).
+- **Visualizations**: [Plotnine](https://plotnine.org) is a library
+  built using the consistency of the grammar of graphics philosophy for
+  visualizations. It is a port of R’s {ggplot2} package, which is the
+  industry standard across open source programming languages.
+- **Modeling**: [scikit-learn](https://scikit-learn.org/stable/) is the
+  most widely used library for machine learning, but it doesn’t do
+  statistical inference. For statistical inference, the
+  [statsmodels](https://www.statsmodels.org/) and
+  [Bambi](https://bambinos.github.io/bambi/) libraries are used for
+  frequentist and Bayesian modeling, respectively.
+
+There are many ways to install and maintain libraries, but uv installs
+and manages both Python versions and libraries. For example, to install
+Polars, in the terminal run `uv add polars`.
+
+<img src="figures/python-02_uv-add-polars.png" style="width:90.0%"
+data-fig-align="center" />
+
+The terminal (i.e., the command line or shell) is the programming
+interface into your OS itself. Note that the name of the terminal will
+be different based on your OS. The macOS terminal is **Zsh**, the Linux
+terminal is **Bash**, and the Windows terminal is **PowerShell**. You
+can think of the console as a specialized terminal for running code only
+while the general terminal is where we can interact with the operating
+system for everything outside of running code. This includes uv and
+Python, which Positron handled for us with the “Install Python via uv”
+command, and now installing Python libraries.
+
+Just like you only need to install Positron, uv, and Python once, you
+only need to install Python libraries once. You can see what libraries
+or packages you have installed by selecting packages from the vertical
+activity bar.
+
+<img src="figures/python-03_packages.png" style="width:90.0%"
+data-fig-align="center" />
+
+This list includes libraries you’ve installed, the libraries that come
+pre-installed with Python, and any **dependencies** or the libraries
+that those libraries depend on. You can also see which libraries you can
+update.
+
+### Human-Readable Code
+
+- Discuss human readable code, including consecutive lines of code, not
+  functions
 
 > [!TIP]
 >
@@ -225,6 +290,12 @@ versions.
 > a second. For example, see [how I learned Python coming from a
 > background using
 > R](https://occasionaldivergences.com/posts/python-intro/).
+
+### Project Environments
+
+<!-- Once you have uv installed, it's easy to install and manage Python versions.
+&#10;- To install the latest stable release of Python, on the command line, run `uv python install`. To see which versions of Python you already have installed, run `uv python find`; none of these will be the off-limits OS version.
+- You can also install specific versions of Python, such as `uv python install 3.13.4` to install Python 3.13.4. To view Python versions that are available to install, run `uv python list`. -->
 
 You can also use uv to manage project environments and make them
 reproducible. A project environment is composed of the language(s) and
@@ -265,32 +336,6 @@ avoid having to install the same version of a given library more than
 once. The project library will reference the global cache.) Whenever you
 install new libraries, the `uv.lock` file is automatically updated.
 
-> [!NOTE]
->
-> ### Library Preferences
->
-> While there are many Python libraries, I recommend the following for
-> the three categories of data analytics tasks:
->
-> - **Data Wrangling**: [Polars](https://pola.rs/) is a fast,
->   self-consistent library for data wrangling that is growing in
->   popularity as an alternative to [pandas](https://pandas.pydata.org).
-> - **Visualizations**:
->   [seaborn.objects](https://seaborn.pydata.org/tutorial/objects_interface.html)
->   is a module built using the consistency of the grammar of graphics
->   philosophy. While still in development, unlike its parent library
->   [Seaborn](https://seaborn.pydata.org/), its designed to minimize the
->   need to invoke the underlying [matplotlib](https://matplotlib.org)
->   for fine-tuning. Totally separate from the matplotlib architecture,
->   [plotnine](https://plotnine.org) is a Python port of R’s {ggplot2}
->   package and also uses the grammar of graphics.
-> - **Modeling**: [scikit-learn](https://scikit-learn.org/stable/) is
->   the most widely used library for machine learning, but it doesn’t do
->   statistical inference. For that I recommend the
->   [statsmodels](https://www.statsmodels.org/) and
->   [Bambi](https://bambinos.github.io/bambi/) libraries for frequentist
->   and Bayesian modeling, respectively.
-
 There is a *lot* more that [uv](https://docs.astral.sh/uv/) can do. For
 example, if you’re starting with an existing project, run `uv run` for
 the libraries included in `uv.lock` to be automatically installed. And
@@ -300,7 +345,154 @@ if someone is using another tool to install libraries instead of uv
 create with `uv export --format requirements.txt` or
 `uv export -o pylock.toml`, respectively.
 
+## <span id="sec-quarto">Quarto</span>
+
+- Update with screenshots from Positron
+- Scripts vs. notebooks and how to execute code, compare with Jupyter
+  notebook
+- Reference button for adding code cells, dropdown for other options
+- Inline support turn on `positron.quarto.inlineOutput.enabled` or is it
+  default?
+
+[Quarto](https://quarto.org) is an open source publishing system where
+we can combine text along with code and its output. If you’ve used
+Jupyter notebooks, Quarto documents will be familiar. However, the most
+important difference is that the notebook format of a Quarto document is
+simply a means to an end. Quarto is built using a sophisticated tool
+called Pandoc that can take whatever we produce within the Quarto
+document and render it into a Word document, PowerPoint presentation,
+PDF, Revealjs slide deck, interactive dashboard, website, etc. Browse
+through the [gallery](https://quarto.org/docs/gallery/) to see what sort
+of things are possible.
+
+Quarto is a command line tool that is also available as a VS Code
+extension that comes pre-installed with Positron. The [project
+template](https://github.com/marcdotson/project-template) has Quarto
+documents (e.g., `README.qmd`) used throughout. Whenever you make a
+change to a Quarto document, render the document into its specified
+format and a preview of the rendered document will appear in Positron’s
+viewer (in the right pane by default). If you are using Python within
+the Quarto document, Quarto will render the output using the Jupyter
+kernel in the background.
+
+<img src="figures/quarto_pandoc.png" style="width:90.0%"
+data-fig-align="center" />
+
+Please note that a Quarto document can be used in conjunction with a
+[Jupyter
+notebook](https://quarto.org/docs/get-started/hello/jupyter.html) to
+render into all of these different outputs via Pandoc as well. For
+example, we can render a Jupyter notebook called `data-analysis.ipynb`
+into a PDF using the command line with
+`quarto render data-analysis.ipynb --to typst`. However, just because we
+can doesn’t mean we should. Unless we need to produce output in a format
+other than code, much of the code we write for a project can simply use
+flat text Python `.py` scripts.
+
+The [Quarto documentation](https://quarto.org/docs/guide/) is
+comprehensive and highly recommended, especially as you adapt work for
+different formats. The following sections highlight some of the
+essential features of Quarto documents.
+
+### YAML
+
+The header at the top of any Quarto document is coded in *YAML* (i.e.,
+Yet Another Markup Language), which follows a simple `key: value`
+syntax. For most Quarto documents in a project repository, you should
+set `format: gfm`. When you render your Quarto document, it will create
+a separate markdown document using “GitHub Flavored Markdown” that
+GitHub can parse. For example, the header for this document is:
+
+    ---
+    title: "Data Stack"
+    format: gfm
+    ---
+
+If you want to render the document into a PDF, use `format: typst`
+instead. [Typst](https://quarto.org/docs/output-formats/typst.html) is
+modern, fast typesetting software for creating PDFs. Typst comes
+pre-installed with Quarto. The alternative is to [install and
+use](https://quarto.org/docs/output-formats/pdf-basics.html) a slower
+and more cumbersome typesetting distribution tied to `format: pdf`.
+
+### Markdown
+
+Quarto documents use
+[markdown](https://quarto.org/docs/authoring/markdown-basics.html), just
+like in Jupyter notebooks. Markdown is a simple, generic typesetting
+syntax. Note that GitHub recognizes this syntax, including in issues and
+pull requests.
+
+Sometimes working with markdown alone can be challenging. Positron
+includes a visual mode you can access inside any Quarto document. The
+visual mode includes some point-and-click options to help you produce
+markdown syntax, which can be especially helpful for things like
+[tables](https://quarto.org/docs/authoring/tables.html) and
+[citations](https://quarto.org/docs/authoring/citations.html).
+
+### Code
+
+Quarto allows us to include [code
+blocks](https://quarto.org/docs/computations/python.html) and output as
+part of the document. Much like Jupyter notebooks, you can include
+Julia, Python, and R code as well as C++, Stan, and other code blocks
+and output. To run Python code only, specify `jupyter: python3` in the
+header YAML.
+
+> [!NOTE]
+>
+> ### Quarto Projects
+>
+> One quirk of using Quarto is that when you run code in the code blocks
+> vs. render the Quarto document into its specified format, the working
+> directory will be *different*. By default, the folder you have open in
+> the explorer is identified as the working directory for the code you
+> run in the code blocks. However, when you render the Quarto document
+> into its output, Quarto will think that the directory the Quarto
+> document is in is the working directory.
+>
+> This is especially a problem when you’re reading or writing data,
+> figures, etc. This is where [Quarto
+> projects](https://quarto.org/docs/projects/quarto-projects.html) come
+> in. At its simplest, a Quarto project allows you to share YAML
+> configurations across all the Quarto documents in a given project.
+> This is accomplished with a Quarto project configuration file in the
+> working directory called `_quarto.yml`. To make the working
+> directories consistent, the `_quarto.yml` file includes:
+>
+>     project:
+>       execute-dir: project
+>
+> This is applied to every Quarto document you render in the project,
+> and it’s already included in the [project
+> template](https://github.com/marcdotson/project-template).
+
+There are a variety of options for each code block. In addition to
+specifying the language used within the code block, the code block can
+be given an identifier, can have warnings suppressed, can run without
+producing output, etc. These options are specified using YAML syntax
+following the hashpipe operator `#|` within the body of the code block.
+Any code block YAML that should apply to the document in its entirety
+can simply be moved into the header YAML.
+
+### Equations
+
+If you need to include any math, you shouldn’t be surprised that there’s
+a typesetting syntax for that. It’s tied to
+[LaTeX](https://www.latex-project.org) (pronounced “lah-tech” or
+“lay-tech”) and our primary interest is using it’s [math
+syntax](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols). Use
+`$` around any in-line LaTeX notation or `$$` around equations specified
+as a separate line. For example, we can reference
+$p(\theta | X) \propto p(X | \theta) \ p(\theta)$ in-line as well as
+centered on its own:
+
+$$p(\theta | X) \propto p(X | \theta) \ p(\theta)$$
+
 ## <span id="sec-github">GitHub</span>
+
+- Update with screenshots from Positron
+- Revise project template reports, \*\*/*.quarto_ipynb\_*?
 
 Git is a powerful [version control
 system](https://peerj.com/preprints/3159v2/). While it is the industry
@@ -489,140 +681,3 @@ closed on GitHub by using `Git: Delete Branch...` via the command
 palette, followed by the branch name. You may also need to use
 `Git: Fetch` to prune tracking branches that are no longer on remote
 (i.e., on GitHub).
-
-## <span id="sec-quarto">Quarto</span>
-
-[Quarto](https://quarto.org) is an open source publishing system where
-we can combine text along with code and its output. If you’ve used
-Jupyter notebooks, Quarto documents will be familiar. However, the most
-important difference is that the notebook format of a Quarto document is
-simply a means to an end. Quarto is built using a sophisticated tool
-called Pandoc that can take whatever we produce within the Quarto
-document and render it into a Word document, PowerPoint presentation,
-PDF, Revealjs slide deck, interactive dashboard, website, etc. Browse
-through the [gallery](https://quarto.org/docs/gallery/) to see what sort
-of things are possible.
-
-Quarto is a command line tool that is also available as a VS Code
-extension that comes pre-installed with Positron. The [project
-template](https://github.com/marcdotson/project-template) has Quarto
-documents (e.g., `README.qmd`) used throughout. Whenever you make a
-change to a Quarto document, render the document into its specified
-format and a preview of the rendered document will appear in Positron’s
-viewer (in the right pane by default). If you are using Python within
-the Quarto document, Quarto will render the output using the Jupyter
-kernel in the background.
-
-<img src="figures/quarto_pandoc.png" style="width:90.0%"
-data-fig-align="center" />
-
-Please note that a Quarto document can be used in conjunction with a
-[Jupyter
-notebook](https://quarto.org/docs/get-started/hello/jupyter.html) to
-render into all of these different outputs via Pandoc as well. For
-example, we can render a Jupyter notebook called `data-analysis.ipynb`
-into a PDF using the command line with
-`quarto render data-analysis.ipynb --to typst`. However, just because we
-can doesn’t mean we should. Unless we need to produce output in a format
-other than code, much of the code we write for a project can simply use
-flat text Python `.py` scripts.
-
-The [Quarto documentation](https://quarto.org/docs/guide/) is
-comprehensive and highly recommended, especially as you adapt work for
-different formats. The following sections highlight some of the
-essential features of Quarto documents.
-
-### YAML
-
-The header at the top of any Quarto document is coded in *YAML* (i.e.,
-Yet Another Markup Language), which follows a simple `key: value`
-syntax. For most Quarto documents in a project repository, you should
-set `format: gfm`. When you render your Quarto document, it will create
-a separate markdown document using “GitHub Flavored Markdown” that
-GitHub can parse. For example, the header for this document is:
-
-    ---
-    title: "Data Stack"
-    format: gfm
-    ---
-
-If you want to render the document into a PDF, use `format: typst`
-instead. [Typst](https://quarto.org/docs/output-formats/typst.html) is
-modern, fast typesetting software for creating PDFs. Typst comes
-pre-installed with Quarto. The alternative is to [install and
-use](https://quarto.org/docs/output-formats/pdf-basics.html) a slower
-and more cumbersome typesetting distribution tied to `format: pdf`.
-
-### Markdown
-
-Quarto documents use
-[markdown](https://quarto.org/docs/authoring/markdown-basics.html), just
-like in Jupyter notebooks. Markdown is a simple, generic typesetting
-syntax. Note that GitHub recognizes this syntax, including in issues and
-pull requests.
-
-Sometimes working with markdown alone can be challenging. Positron
-includes a visual mode you can access inside any Quarto document. The
-visual mode includes some point-and-click options to help you produce
-markdown syntax, which can be especially helpful for things like
-[tables](https://quarto.org/docs/authoring/tables.html) and
-[citations](https://quarto.org/docs/authoring/citations.html).
-
-### Code
-
-Quarto allows us to include [code
-blocks](https://quarto.org/docs/computations/python.html) and output as
-part of the document. Much like Jupyter notebooks, you can include
-Julia, Python, and R code as well as C++, Stan, and other code blocks
-and output. To run Python code only, specify `jupyter: python3` in the
-header YAML.
-
-> [!NOTE]
->
-> ### Quarto Projects
->
-> One quirk of using Quarto is that when you run code in the code blocks
-> vs. render the Quarto document into its specified format, the working
-> directory will be *different*. By default, the folder you have open in
-> the explorer is identified as the working directory for the code you
-> run in the code blocks. However, when you render the Quarto document
-> into its output, Quarto will think that the directory the Quarto
-> document is in is the working directory.
->
-> This is especially a problem when you’re reading or writing data,
-> figures, etc. This is where [Quarto
-> projects](https://quarto.org/docs/projects/quarto-projects.html) come
-> in. At its simplest, a Quarto project allows you to share YAML
-> configurations across all the Quarto documents in a given project.
-> This is accomplished with a Quarto project configuration file in the
-> working directory called `_quarto.yml`. To make the working
-> directories consistent, the `_quarto.yml` file includes:
->
->     project:
->       execute-dir: project
->
-> This is applied to every Quarto document you render in the project,
-> and it’s already included in the [project
-> template](https://github.com/marcdotson/project-template).
-
-There are a variety of options for each code block. In addition to
-specifying the language used within the code block, the code block can
-be given an identifier, can have warnings suppressed, can run without
-producing output, etc. These options are specified using YAML syntax
-following the hashpipe operator `#|` within the body of the code block.
-Any code block YAML that should apply to the document in its entirety
-can simply be moved into the header YAML.
-
-### Equations
-
-If you need to include any math, you shouldn’t be surprised that there’s
-a typesetting syntax for that. It’s tied to
-[LaTeX](https://www.latex-project.org) (pronounced “lah-tech” or
-“lay-tech”) and our primary interest is using it’s [math
-syntax](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols). Use
-`$` around any in-line LaTeX notation or `$$` around equations specified
-as a separate line. For example, we can reference
-$p(\theta | X) \propto p(X | \theta) \ p(\theta)$ in-line as well as
-centered on its own:
-
-$$p(\theta | X) \propto p(X | \theta) \ p(\theta)$$
