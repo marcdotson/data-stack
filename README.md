@@ -59,14 +59,15 @@ right by default).
 <img src="figures/positron-01_console-session.png" style="width:90.0%"
 data-fig-align="center" />
 
-The console is where code runs and is separate from the **terminal**
-(also called the command line or shell, in the bottom panel by default),
-which is used to interact with your operating system to do things
-outside running code, like installing Python libraries. There is no
-console in VS Code and so code also runs in the terminal, which often
-means you have multiple terminals running for different purposes. The
-session displays the variables (e.g., data, functions, and methods)
-you’ve loaded and plots you’ve created.
+The console is where code runs (use Cmd/Ctrl + Enter to run the
+currently selected code in the editor) and is separate from the
+**terminal** (also called the command line or shell, in the bottom panel
+by default). The terminal is used to interact with your operating system
+to do things outside running code, like installing Python libraries.
+There is no console in VS Code and so code also runs in the terminal,
+which often means you have multiple terminals running for different
+purposes. The session displays the variables (e.g., data, functions, and
+methods) you’ve loaded and plots you’ve created.
 
 ### Data Explorer
 
@@ -357,15 +358,16 @@ understand the output.
 
 Perhaps the most readable code is produced with a technique called
 **method chaining**. Instead of saving out intermediate objects for
-every step in a set of method calls, just string them all together.
+every step in a set of method calls, just chain them all together.
 
 <img src="figures/python-05_method-chaining.png" style="width:90.0%"
 data-fig-align="center" />
 
 The resulting code, which has to be enclosed in parentheses, can be read
-like a sentence as we move from one method to the next. Method chaining
-is enabled by Polars syntax and is mirrored in the composition of
-Plotnine’s grammar of graphics.
+like a sentence as we move from one method to the next. Using Cmd/Ctrl +
+Enter to run the currently selected code in the editor will run an
+entire method chain. Method chaining is enabled by Polars syntax and is
+mirrored in the composition of Plotnine’s grammar of graphics.
 
 > [!TIP]
 >
@@ -393,47 +395,54 @@ Plotnine’s grammar of graphics.
 
 ## <span id="sec-quarto">Quarto</span>
 
-- Update with screenshots from Positron
-- Scripts vs. notebooks and how to execute code, compare with Jupyter
-  notebook
-- Reference button for adding code cells, dropdown for other options
-- Inline support turn on `positron.quarto.inlineOutput.enabled` or is it
-  default?
+<!-- - Inline support turn on `positron.quarto.inlineOutput.enabled` or is it default? -->
 
-[Quarto](https://quarto.org) is an open source publishing system where
-we can combine text along with code and its output. If you’ve used
-Jupyter notebooks, Quarto documents will be familiar. However, the most
-important difference is that the notebook format of a Quarto document is
-simply a means to an end. Quarto is built using a sophisticated tool
-called Pandoc that can take whatever we produce within the Quarto
-document and render it into a Word document, PowerPoint presentation,
-PDF, Revealjs slide deck, interactive dashboard, website, etc. Browse
-through the [gallery](https://quarto.org/docs/gallery/) to see what sort
-of things are possible.
+Much of the code we write for a project can use flat text Python `.py`
+scripts. However, if we need to produce an output in a format other than
+code, for example a report, then we should use something else.
+[Quarto](https://quarto.org) is an **open source publishing system**
+where we can combine writing along with code and its output. If you’ve
+used Jupyter notebooks, Quarto documents will be familiar with
+designated sections for writing and code.
 
-Quarto is a command line tool that is also available as a VS Code
-extension that comes pre-installed with Positron. The [project
-template](https://github.com/marcdotson/project-template) has Quarto
-documents (e.g., `README.qmd`) used throughout. Whenever you make a
-change to a Quarto document, render the document into its specified
-format and a preview of the rendered document will appear in Positron’s
-viewer (in the right pane by default). If you are using Python within
-the Quarto document, Quarto will render the output using the Jupyter
-kernel in the background.
-
-<img src="figures/quarto_pandoc.png" style="width:90.0%"
+<img src="figures/quarto-01_document.png" style="width:90.0%"
 data-fig-align="center" />
 
-Please note that a Quarto document can be used in conjunction with a
-[Jupyter
+Like in Jupyter notebooks, we can run each of the code blocks
+individually or all at once with the *play* buttons. Unlike Jupyter
+notebooks, the code blocks in Quarto documents are flat text Python
+scripts so we can still use Cmd/Ctrl + Enter to run individual lines of
+code within a code block.
+
+<img src="figures/quarto-02_running-code.png" style="width:90.0%"
+data-fig-align="center" />
+
+The most important difference is that the notebook format of a Quarto
+document is simply a means to an end. Quarto can take whatever we
+produce within the document and render it into a Word document,
+PowerPoint presentation, PDF, Revealjs slide deck, interactive
+dashboard, website, etc. Browse through the
+[gallery](https://quarto.org/docs/gallery/) to see what sort of things
+are possible.
+
+The Quarto extension comes pre-installed with Positron. The [project
+template](https://github.com/marcdotson/project-template) has Quarto
+documents (e.g., `README.qmd`) used throughout. Whenever you make a
+change to a Quarto document, render the document (click on Preview or
+Cmd/Ctrl + Shift + K) into its specified format and a preview of the
+rendered document will appear in Positron’s viewer (in the right pane by
+default).
+
+<img src="figures/quarto-03_rendered-pdf.png" style="width:90.0%"
+data-fig-align="center" />
+
+If you are using Python within the Quarto document, Quarto will render
+the output using the Jupyter kernel in the background. In fact, as
+needed, a Quarto document can be used in conjunction with a [Jupyter
 notebook](https://quarto.org/docs/get-started/hello/jupyter.html) to
-render into all of these different outputs via Pandoc as well. For
-example, we can render a Jupyter notebook called `data-analysis.ipynb`
-into a PDF using the command line with
-`quarto render data-analysis.ipynb --to typst`. However, just because we
-can doesn’t mean we should. Unless we need to produce output in a format
-other than code, much of the code we write for a project can simply use
-flat text Python `.py` scripts.
+render into all of these different outputs. For example, we can render a
+Jupyter notebook called `data-analysis.ipynb` into a PDF using the
+command line with `quarto render data-analysis.ipynb --to typst`.
 
 The [Quarto documentation](https://quarto.org/docs/guide/) is
 comprehensive and highly recommended, especially as you adapt work for
@@ -537,8 +546,8 @@ $$p(\theta | X) \propto p(X | \theta) \ p(\theta)$$
 
 ## <span id="sec-github">GitHub</span>
 
-- Update with screenshots from Positron
-- Revise project template reports, \*\*/*.quarto_ipynb\_*?
+<!-- - Update with screenshots from Positron
+- Revise project template reports, **/*.quarto_ipynb_*? -->
 
 Git is a powerful [version control
 system](https://peerj.com/preprints/3159v2/). While it is the industry

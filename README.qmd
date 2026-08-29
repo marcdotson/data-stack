@@ -26,7 +26,7 @@ If you've used VS Code, Positron's layout will look familiar. When selected from
 
 ![](figures/positron-01_console-session.png){width=90% fig-align="center"}
 
-The console is where code runs and is separate from the **terminal** (also called the command line or shell, in the bottom panel by default), which is used to interact with your operating system to do things outside running code, like installing Python libraries. There is no console in VS Code and so code also runs in the terminal, which often means you have multiple terminals running for different purposes. The session displays the variables (e.g., data, functions, and methods) you've loaded and plots you've created.
+The console is where code runs (use Cmd/Ctrl + Enter to run the currently selected code in the editor) and is separate from the **terminal** (also called the command line or shell, in the bottom panel by default). The terminal is used to interact with your operating system to do things outside running code, like installing Python libraries. There is no console in VS Code and so code also runs in the terminal, which often means you have multiple terminals running for different purposes. The session displays the variables (e.g., data, functions, and methods) you've loaded and plots you've created.
 
 ### Data Explorer
 
@@ -142,11 +142,11 @@ Just like different application use different Python libraries, so do different 
 
 Code used in production must be efficient, but often at the cost of it being readable -- especially when custom functions are created. Code use in data analysis needs to be readable, often because it doesn't need to be incredibly efficient. This is important if you are coding with the help of an AI tool, which will naturally gravitate toward needless efficiency and an overabundance of code I refer to as **AI bloat**. As you code for data analysis, focus on readability. You'll be more productive when working with AI tools since you should be able to better understand the output.
 
-Perhaps the most readable code is produced with a technique called **method chaining**. Instead of saving out intermediate objects for every step in a set of method calls, just string them all together.
+Perhaps the most readable code is produced with a technique called **method chaining**. Instead of saving out intermediate objects for every step in a set of method calls, just chain them all together.
 
 ![](figures/python-05_method-chaining.png){width=90% fig-align="center"}
 
-The resulting code, which has to be enclosed in parentheses, can be read like a sentence as we move from one method to the next. Method chaining is enabled by Polars syntax and is mirrored in the composition of Plotnine's grammar of graphics.
+The resulting code, which has to be enclosed in parentheses, can be read like a sentence as we move from one method to the next. Using Cmd/Ctrl + Enter to run the currently selected code in the editor will run an entire method chain. Method chaining is enabled by Polars syntax and is mirrored in the composition of Plotnine's grammar of graphics.
 
 ::: {.callout-tip title="R and Julia"}
 Python might be the most commonly used open source programming language for data wrangling, visualizations, and modeling -- but it's not the only one. The three most popular languages for data analytics are Julia, Python, and R (the **Jupyter** kernel was named for and designed to support all three). Each language comes with its own tradeoffs, culture, and overall vibe.
@@ -160,18 +160,23 @@ If you want to learn more than one of the three languages, and you arguably shou
 
 ## [Quarto]{#sec-quarto}
 
-- Update with screenshots from Positron
-- Scripts vs. notebooks and how to execute code, compare with Jupyter notebook
-- Reference button for adding code cells, dropdown for other options
-- Inline support turn on `positron.quarto.inlineOutput.enabled` or is it default?
+<!-- - Inline support turn on `positron.quarto.inlineOutput.enabled` or is it default? -->
 
-[Quarto](https://quarto.org) is an open source publishing system where we can combine text along with code and its output. If you've used Jupyter notebooks, Quarto documents will be familiar. However, the most important difference is that the notebook format of a Quarto document is simply a means to an end. Quarto is built using a sophisticated tool called Pandoc that can take whatever we produce within the Quarto document and render it into a Word document, PowerPoint presentation, PDF, Revealjs slide deck, interactive dashboard, website, etc. Browse through the [gallery](https://quarto.org/docs/gallery/) to see what sort of things are possible.
+Much of the code we write for a project can use flat text Python `.py` scripts. However, if we need to produce an output in a format other than code, for example a report, then we should use something else. [Quarto](https://quarto.org) is an **open source publishing system** where we can combine writing along with code and its output. If you've used Jupyter notebooks, Quarto documents will be familiar with designated sections for writing and code.
 
-Quarto is a command line tool that is also available as a VS Code extension that comes pre-installed with Positron. The [project template](https://github.com/marcdotson/project-template) has Quarto documents (e.g., `README.qmd`) used throughout. Whenever you make a change to a Quarto document, render the document into its specified format and a preview of the rendered document will appear in Positron's viewer (in the right pane by default). If you are using Python within the Quarto document, Quarto will render the output using the Jupyter kernel in the background.
+![](figures/quarto-01_document.png){width=90% fig-align="center"}
 
-![](figures/quarto_pandoc.png){width=90% fig-align="center"}
+Like in Jupyter notebooks, we can run each of the code blocks individually or all at once with the *play* buttons. Unlike Jupyter notebooks, the code blocks in Quarto documents are flat text Python scripts so we can still use Cmd/Ctrl + Enter to run individual lines of code within a code block.
 
-Please note that a Quarto document can be used in conjunction with a [Jupyter notebook](https://quarto.org/docs/get-started/hello/jupyter.html) to render into all of these different outputs via Pandoc as well. For example, we can render a Jupyter notebook called `data-analysis.ipynb` into a PDF using the command line with `quarto render data-analysis.ipynb --to typst`. However, just because we can doesn't mean we should. Unless we need to produce output in a format other than code, much of the code we write for a project can simply use flat text Python `.py` scripts.
+![](figures/quarto-02_running-code.png){width=90% fig-align="center"}
+
+The most important difference is that the notebook format of a Quarto document is simply a means to an end. Quarto can take whatever we produce within the document and render it into a Word document, PowerPoint presentation, PDF, Revealjs slide deck, interactive dashboard, website, etc. Browse through the [gallery](https://quarto.org/docs/gallery/) to see what sort of things are possible.
+
+The Quarto extension comes pre-installed with Positron. The [project template](https://github.com/marcdotson/project-template) has Quarto documents (e.g., `README.qmd`) used throughout. Whenever you make a change to a Quarto document, render the document (click on Preview or Cmd/Ctrl + Shift + K) into its specified format and a preview of the rendered document will appear in Positron's viewer (in the right pane by default).
+
+![](figures/quarto-03_rendered-pdf.png){width=90% fig-align="center"}
+
+If you are using Python within the Quarto document, Quarto will render the output using the Jupyter kernel in the background. In fact, as needed, a Quarto document can be used in conjunction with a [Jupyter notebook](https://quarto.org/docs/get-started/hello/jupyter.html) to render into all of these different outputs. For example, we can render a Jupyter notebook called `data-analysis.ipynb` into a PDF using the command line with `quarto render data-analysis.ipynb --to typst`.
 
 The [Quarto documentation](https://quarto.org/docs/guide/) is comprehensive and highly recommended, especially as you adapt work for different formats. The following sections highlight some of the essential features of Quarto documents.
 
@@ -223,8 +228,8 @@ $$
 
 ## [GitHub]{#sec-github}
 
-- Update with screenshots from Positron
-- Revise project template reports, **/*.quarto_ipynb_*?
+<!-- - Update with screenshots from Positron
+- Revise project template reports, **/*.quarto_ipynb_*? -->
 
 Git is a powerful [version control system](https://peerj.com/preprints/3159v2/). While it is the industry standard for software development, we can easily adopt this framework to provide structure for any kind of data project. GitHub is an online hosting service where each project lives in its own repository. Learning to use Git and GitHub not only aids in collaboration, it will ultimately allow you to develop an online portfolio of work.
 
