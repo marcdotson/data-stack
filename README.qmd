@@ -72,6 +72,12 @@ The **command palette** is the primary way to manage options (e.g., customize la
 
 ![](figures/positron-08_command-palette.png){width=90% fig-align="center"}
 
+### Customize Layout
+
+In the upper-right corner are a set of icons to customize the layout of Positron, including a number of layout presets and toggles for side bars and panels.
+
+![](figures/positron-09_customize-layout.png){width=90% fig-align="center"}
+
 There is more that [Positron](https://positron.posit.co/welcome.html) can do, including [connecting to databases](https://positron.posit.co/connections-pane.html) and [remoting into virtual machines](https://positron.posit.co/remote-ssh.html). Additionally, since Positron is built on VS Code's open source core, VS Code's excellent [documentation](https://code.visualstudio.com/docs) remains largely relevant.
 
 ## [Python]{#sec-python}
