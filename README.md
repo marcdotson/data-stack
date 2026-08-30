@@ -10,7 +10,7 @@ projects at the [Analytics Solutions
 Center](https://huntsman.usu.edu/asc/) (ASC), and collaborators on
 research projects.
 
-The data stack consists of the following:
+The data stack consists of:
 
 - [Positron](#sec-positron) as the code editor or integrated development
   environment
@@ -20,20 +20,20 @@ The data stack consists of the following:
 - [GitHub](#sec-github) for version control, project management, and
   collaboration
 
-Every modern data stack includes AI tools. All Utah State students have
-[access to a specific set](https://www.usu.edu/ai/tools). While AI can
-help learning and productivity (e.g., drafting and debugging code), it
-can also be harmful. AI is dangerous when we use it to replace rather
-than supplement thinking and decision-making, especially when we don’t
-know enough about a topic to evaluate what the AI generates. If you use
-AI tools, be thoughtful and transparent, including reviewing what the AI
-generates and citing the AI tool you use.
+Every modern data stack also includes AI tools. All Utah State students
+have [access to a specific set](https://www.usu.edu/ai/tools). While AI
+can help learning and productivity (e.g., drafting and debugging code),
+it can be harmful when we use it to replace rather than supplement
+thinking and decision-making—especially when we don’t know enough about
+a topic to evaluate what the AI generates. If you use AI tools, be
+thoughtful and transparent, including reviewing what the AI generates
+and citing the AI tool you use.
 
 ## <span id="sec-positron">Positron</span>
 
-A **code editor** or **integrated development environment (IDE)** is
-arguably your most important tool. A good IDE provides a single tool for
-writing and running code, including communicating results and
+A **code editor** or **integrated development environment (IDE)** is the
+most important tool in the data stack. A good IDE provides a single tool
+for writing and running code, including communicating results and
 implementing version control. There are many options, but I use
 [Positron](https://positron.posit.co), a next-generation data science
 IDE. Built on VS Code’s [open source
@@ -165,8 +165,6 @@ excellent [documentation](https://code.visualstudio.com/docs) remains
 largely relevant.
 
 ## <span id="sec-python">Python</span>
-
-<!-- - Ruff code linter is also included -- need to enable? -->
 
 Python is a general purpose, **open source programming language**, often
 referred to as “the second-best language for everything.” Notably,
@@ -347,14 +345,14 @@ runs very infrequently so efficiency takes a back seat to the code being
 **readable**.
 
 Code used in production must be efficient, but often at the cost of it
-being readable – especially when custom functions are created. Code use
-in data analysis needs to be readable, often because it doesn’t need to
-be incredibly efficient. This is important if you are coding with the
-help of an AI tool, which will naturally gravitate toward needless
-efficiency and an overabundance of code I refer to as **AI bloat**. As
-you code for data analysis, focus on readability. You’ll be more
-productive when working with AI tools since you should be able to better
-understand the output.
+being readable—especially when custom functions are created. Code use in
+data analysis needs to be readable, often because it doesn’t need to be
+incredibly efficient. This is important if you are coding with the help
+of an AI tool, which will naturally gravitate toward needless efficiency
+and an overabundance of code I refer to as **AI bloat**. As you code for
+data analysis, focus on readability. You’ll be more productive when
+working with AI tools since you should be able to better understand the
+output.
 
 Perhaps the most readable code is produced with a technique called
 **method chaining**. Instead of saving out intermediate objects for

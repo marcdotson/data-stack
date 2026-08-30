@@ -5,18 +5,18 @@ format: gfm
 
 This repository provides training for setting up and using the following data stack, a collection of tools for working on data analytics projects. The intended audience is students in my courses at the [Jon M. Huntsman School of Business](https://huntsman.usu.edu) at [Utah State University](https://www.usu.edu), students that I'm mentoring on projects at the [Analytics Solutions Center](https://huntsman.usu.edu/asc/) (ASC), and collaborators on research projects.
 
-The data stack consists of the following:
+The data stack consists of:
 
 - [Positron](#sec-positron) as the code editor or integrated development environment
 - [Python](#sec-python) for data wrangling, visualizations, and modeling
 - [Quarto](#sec-quarto) for communicating results with presentations, reports, dashboards, etc.
 - [GitHub](#sec-github) for version control, project management, and collaboration
 
-Every modern data stack includes AI tools. All Utah State students have [access to a specific set](https://www.usu.edu/ai/tools). While AI can help learning and productivity (e.g., drafting and debugging code), it can also be harmful. AI is dangerous when we use it to replace rather than supplement thinking and decision-making, especially when we don't know enough about a topic to evaluate what the AI generates. If you use AI tools, be thoughtful and transparent, including reviewing what the AI generates and citing the AI tool you use.
+Every modern data stack also includes AI tools. All Utah State students have [access to a specific set](https://www.usu.edu/ai/tools). While AI can help learning and productivity (e.g., drafting and debugging code), it can be harmful when we use it to replace rather than supplement thinking and decision-making---especially when we don't know enough about a topic to evaluate what the AI generates. If you use AI tools, be thoughtful and transparent, including reviewing what the AI generates and citing the AI tool you use.
 
 ## [Positron]{#sec-positron}
 
-A **code editor** or **integrated development environment (IDE)** is arguably your most important tool. A good IDE provides a single tool for writing and running code, including communicating results and implementing version control. There are many options, but I use [Positron](https://positron.posit.co), a next-generation data science IDE. Built on VS Code's [open source core](https://github.com/microsoft/vscode), Positron combines the multilingual extensibility of [VS Code](https://code.visualstudio.com/) with essential data tools common to language-specific IDEs.
+A **code editor** or **integrated development environment (IDE)** is the most important tool in the data stack. A good IDE provides a single tool for writing and running code, including communicating results and implementing version control. There are many options, but I use [Positron](https://positron.posit.co), a next-generation data science IDE. Built on VS Code's [open source core](https://github.com/microsoft/vscode), Positron combines the multilingual extensibility of [VS Code](https://code.visualstudio.com/) with essential data tools common to language-specific IDEs.
 
 Get started by [downloading](https://positron.posit.co/download.html) and installing Positron and walking through the following highlights of some of Positron's essential features, especially its data-friendly functionality.
 
@@ -82,8 +82,6 @@ There is more that [Positron](https://positron.posit.co/welcome.html) can do, in
 
 ## [Python]{#sec-python}
 
-<!-- - Ruff code linter is also included -- need to enable? -->
-
 Python is a general purpose, **open source programming language**, often referred to as "the second-best language for everything." Notably, Python comes pre-installed on some operating systems (OS). This version *should not be used or modifed* by anyone except the OS itself. For this and other reasons, you'll need the ability to install and maintain multiple versions of Python on the same computer.
 
 There are many ways to install and maintain Python versions. However, [uv](https://docs.astral.sh/uv/) has emerged as the industry standard. Get started by opening the command palette in Positron (Cmd/Ctrl + Shift + P) and running "Install Python via uv."
@@ -140,7 +138,7 @@ There is a *lot* more that [uv](https://docs.astral.sh/uv/) can do. You can manu
 
 Just like different application use different Python libraries, so do different applications lend themselves to different coding styles. For example, the code that runs the transaction backend for the payment system of an online application needs to be incredibly **efficient** and secure since its managing sensitive information and being at a high frequency. On the other hand, the code for a data analysis with moderate-sized data, even if the resulting report is reproduced often, runs very infrequently so efficiency takes a back seat to the code being **readable**.
 
-Code used in production must be efficient, but often at the cost of it being readable -- especially when custom functions are created. Code use in data analysis needs to be readable, often because it doesn't need to be incredibly efficient. This is important if you are coding with the help of an AI tool, which will naturally gravitate toward needless efficiency and an overabundance of code I refer to as **AI bloat**. As you code for data analysis, focus on readability. You'll be more productive when working with AI tools since you should be able to better understand the output.
+Code used in production must be efficient, but often at the cost of it being readable---especially when custom functions are created. Code use in data analysis needs to be readable, often because it doesn't need to be incredibly efficient. This is important if you are coding with the help of an AI tool, which will naturally gravitate toward needless efficiency and an overabundance of code I refer to as **AI bloat**. As you code for data analysis, focus on readability. You'll be more productive when working with AI tools since you should be able to better understand the output.
 
 Perhaps the most readable code is produced with a technique called **method chaining**. Instead of saving out intermediate objects for every step in a set of method calls, just chain them all together.
 
