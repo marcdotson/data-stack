@@ -409,9 +409,6 @@ Inline Output: Enabled.) Unlike Jupyter notebooks, the code blocks in
 Quarto documents are flat text Python scripts so we can still use
 Cmd/Ctrl + Enter to run individual lines of code within a code block.
 
-<img src="figures/quarto-02_running-code.png" style="width:90.0%"
-data-fig-align="center" />
-
 The most important difference is that the notebook format of a Quarto
 document is simply a means to an end. Quarto can take whatever we
 produce within the document and render it into a Word document,
@@ -426,7 +423,7 @@ Preview or use Cmd/Ctrl + Shift + K) into its specified format and a
 preview of the rendered document will appear in Positron’s viewer (in
 the right pane by default).
 
-<img src="figures/quarto-03_qmd-to-pdf.png" style="width:90.0%"
+<img src="figures/quarto-02_qmd-to-pdf.png" style="width:90.0%"
 data-fig-align="center" />
 
 If you are using Python within the Quarto document, Quarto will render
@@ -436,9 +433,6 @@ notebook](https://quarto.org/docs/get-started/hello/jupyter.html) to
 render into all of these different outputs. For example, we can render
 `pydata.ipynb` into a PDF using `quarto render pydata.ipynb --to typst`
 in the terminal.
-
-<img src="figures/quarto-04_ipynb-to-pdf.png" style="width:90.0%"
-data-fig-align="center" />
 
 Quarto’s [documentation](https://quarto.org/docs/guide/) is
 comprehensive. The following sections highlight some of the essential
@@ -455,7 +449,7 @@ Quarto. For GitHub documents, use `format: gfm`. When you render your
 Quarto document, it will create a separate markdown document using
 **GitHub Flavored Markdown** that GitHub can parse as HTML.
 
-<img src="figures/quarto-05_qmd-to-gfm.png" style="width:90.0%"
+<img src="figures/quarto-03_qmd-to-gfm.png" style="width:90.0%"
 data-fig-align="center" />
 
 ### Markdown
@@ -612,7 +606,7 @@ Once you have created or have access to a project repository, you can
 repository, though the clone isn’t just a copy of the folder. Git still
 works in the background keeping track of changes and managing the
 version control. After connecting Positron and GitHub, open the command
-palatte in Positron, use the `Git: Clone` command, and select the
+palette in Positron, use the `Git: Clone` command, and select the
 project repository you’d like to clone.
 
 <img src="figures/github-03_clone.png" style="width:90.0%"
@@ -624,9 +618,6 @@ directory in Positron and run `uv run` in the terminal. This will
 install the correct `.python-version` if you don’t have it, create the
 hidden `/.venv` project library, and install the correct versions of the
 needed libraries as specified in the `uv.lock` file.
-
-<img src="figures/github-04_uv-run.png" style="width:90.0%"
-data-fig-align="center" />
 
 You only need to clone the project repository one time. Please note that
 any of the files and folders that aren’t pushed to GitHub can be created
@@ -656,7 +647,7 @@ you should do when starting to work is navigate to the branch you want
 to work in. Use `Git: Checkout to...` via the command palette to select
 the correct branch.
 
-<img src="figures/github-05_checkout-to.png" style="width:90.0%"
+<img src="figures/github-04_checkout-to.png" style="width:90.0%"
 data-fig-align="center" />
 
 ### Stage, Commit, and Sync
@@ -670,7 +661,7 @@ your collaborators?
 If you click on source control from the vertical activity bar, you’ll
 see all of the files you’ve changed.
 
-<img src="figures/github-06_source-control.png" style="width:90.0%"
+<img src="figures/github-05_source-control.png" style="width:90.0%"
 data-fig-align="center" />
 
 You first need to **stage** these changes using the plus sign next to
@@ -685,20 +676,24 @@ Once the files are staged, you need to write a message that describes
 what you’ve done with the staged files. Like the branch names, these
 should be short and descriptive, like “Cleaned up errors to the final
 model.” It is the branch names and these commit messages that provide a
-record of the work we have done. With a descriptive message, you are
-ready to
-[*commit*](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_staging-and-committing-code-changes).
+record of the work we have done.
+
+<img src="figures/github-07_commit-message.png" style="width:90.0%"
+data-fig-align="center" />
+
+With a descriptive message, you are ready to
+[**commit**](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_staging-and-committing-code-changes).
 This is like saving a file, except we can save multiple files all at
 once associated with the commit message we’ve written.
 
-<img src="figures/github-07_commit.png" style="width:90.0%"
+<img src="figures/github-08_commit.png" style="width:90.0%"
 data-fig-align="center" />
 
 These changes are now archived as part of the version control on our
 cloned project repository. To share them with our collaborators, we need
 to **sync** them with the repository on GitHub.
 
-<img src="figures/github-08_sync.png" style="width:90.0%"
+<img src="figures/github-09_sync.png" style="width:90.0%"
 data-fig-align="center" />
 
 Technically, sync executes a **push** of our changes to the repository

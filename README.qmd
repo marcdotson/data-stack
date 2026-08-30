@@ -164,17 +164,13 @@ Much of the code we write for a project can use flat text Python `.py` scripts. 
 
 Like in Jupyter notebooks, we can run each of the code blocks individually or all at once with the *play* buttons. (To have the output appear in the Quarto document itself like in Jupyter notebooks rather than the console only, toggle on Preferences > Settings > Quarto > Inline Output: Enabled.) Unlike Jupyter notebooks, the code blocks in Quarto documents are flat text Python scripts so we can still use Cmd/Ctrl + Enter to run individual lines of code within a code block.
 
-![](figures/quarto-02_running-code.png){width=90% fig-align="center"}
-
 The most important difference is that the notebook format of a Quarto document is simply a means to an end. Quarto can take whatever we produce within the document and render it into a Word document, PowerPoint presentation, PDF, Revealjs slide deck, interactive dashboard, website, etc. Browse through the [gallery](https://quarto.org/docs/gallery/) to see what sort of things are possible.
 
 The Quarto extension comes pre-installed with Positron. Whenever you make a change to a Quarto document, render the document (click on Preview or use Cmd/Ctrl + Shift + K) into its specified format and a preview of the rendered document will appear in Positron's viewer (in the right pane by default).
 
-![](figures/quarto-03_qmd-to-pdf.png){width=90% fig-align="center"}
+![](figures/quarto-02_qmd-to-pdf.png){width=90% fig-align="center"}
 
 If you are using Python within the Quarto document, Quarto will render the output using the Jupyter kernel in the background. In fact, as needed, a Quarto document can be used in conjunction with a [Jupyter notebook](https://quarto.org/docs/get-started/hello/jupyter.html) to render into all of these different outputs. For example, we can render `pydata.ipynb` into a PDF using `quarto render pydata.ipynb --to typst` in the terminal.
-
-![](figures/quarto-04_ipynb-to-pdf.png){width=90% fig-align="center"}
 
 Quarto's [documentation](https://quarto.org/docs/guide/) is comprehensive. The following sections highlight some of the essential features of Quarto documents.
 
@@ -182,7 +178,7 @@ Quarto's [documentation](https://quarto.org/docs/guide/) is comprehensive. The f
 
 The header of any Quarto document is coded in YAML (i.e., Yet Another Markup Language), which follows a simple `key: value` syntax. To render documents into a PDF, use `format: typst`. [Typst](https://quarto.org/docs/output-formats/typst.html) is modern, fast typesetting software for creating PDFs and comes pre-installed with Quarto. For GitHub documents, use `format: gfm`. When you render your Quarto document, it will create a separate markdown document using **GitHub Flavored Markdown** that GitHub can parse as HTML.
 
-![](figures/quarto-05_qmd-to-gfm.png){width=90% fig-align="center"}
+![](figures/quarto-03_qmd-to-gfm.png){width=90% fig-align="center"}
 
 ### Markdown
 
@@ -270,13 +266,11 @@ Be sure to tag collaborators you want to see a specific comment (e.g., `@marcdot
 
 ### Clone
 
-Once you have created or have access to a project repository, you can **clone** it. Cloning simply means you're creating a local copy of the repository, though the clone isn't just a copy of the folder. Git still works in the background keeping track of changes and managing the version control. After connecting Positron and GitHub, open the command palatte in Positron, use the `Git: Clone` command, and select the project repository you'd like to clone.
+Once you have created or have access to a project repository, you can **clone** it. Cloning simply means you're creating a local copy of the repository, though the clone isn't just a copy of the folder. Git still works in the background keeping track of changes and managing the version control. After connecting Positron and GitHub, open the command palette in Positron, use the `Git: Clone` command, and select the project repository you'd like to clone.
 
 ![](figures/github-03_clone.png){width=90% fig-align="center"}
 
 As detailed in the project template README, instead of having to create a project environment, you simply need to open the project working directory in Positron and run `uv run` in the terminal. This will install the correct `.python-version` if you don't have it, create the hidden `/.venv` project library, and install the correct versions of the needed libraries as specified in the `uv.lock` file.
-
-![](figures/github-04_uv-run.png){width=90% fig-align="center"}
 
 You only need to clone the project repository one time. Please note that any of the files and folders that aren't pushed to GitHub can be created in your cloned repository without any impact on the repository hosted on GitHub. For example, I typically store PDFs and other related materials that I don't want to (or can't) share in the `/private` folder so that the resources I need are all within the same directory on my machine.
 
@@ -286,7 +280,7 @@ Remember that Git and GitHub are built for software development. Following that 
 
 Every repository has a `main` branch. If this were software, the `main` branch would be the branch that is being used in production. *Never make changes directly to the `main` branch.* You can see which branch you're working in by looking at the bottom left corner in Positron. Assuming the branch you need to work on has already been created, the first thing you should do when starting to work is navigate to the branch you want to work in. Use `Git: Checkout to...` via the command palette to select the correct branch.
 
-![](figures/github-05_checkout-to.png){width=90% fig-align="center"}
+![](figures/github-04_checkout-to.png){width=90% fig-align="center"}
 
 ### Stage, Commit, and Sync
 
@@ -294,19 +288,23 @@ You've identified what you need to work on using issues, cloned the project repo
 
 If you click on source control from the vertical activity bar, you'll see all of the files you've changed.
 
-![](figures/github-06_source-control.png){width=90% fig-align="center"}
+![](figures/github-05_source-control.png){width=90% fig-align="center"}
 
 You first need to **stage** these changes using the plus sign next to the files. It's best practice to stage changes across files that relate to the specific work you've done and want to track within the version control graph.
 
 ![](figures/github-06_stage.png){width=90% fig-align="center"}
 
-Once the files are staged, you need to write a message that describes what you've done with the staged files. Like the branch names, these should be short and descriptive, like "Cleaned up errors to the final model." It is the branch names and these commit messages that provide a record of the work we have done. With a descriptive message, you are ready to [*commit*](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_staging-and-committing-code-changes). This is like saving a file, except we can save multiple files all at once associated with the commit message we've written.
+Once the files are staged, you need to write a message that describes what you've done with the staged files. Like the branch names, these should be short and descriptive, like "Cleaned up errors to the final model." It is the branch names and these commit messages that provide a record of the work we have done.
 
-![](figures/github-07_commit.png){width=90% fig-align="center"}
+![](figures/github-07_commit-message.png){width=90% fig-align="center"}
+
+With a descriptive message, you are ready to [**commit**](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_staging-and-committing-code-changes). This is like saving a file, except we can save multiple files all at once associated with the commit message we've written.
+
+![](figures/github-08_commit.png){width=90% fig-align="center"}
 
 These changes are now archived as part of the version control on our cloned project repository. To share them with our collaborators, we need to **sync** them with the repository on GitHub.
 
-![](figures/github-08_sync.png){width=90% fig-align="center"}
+![](figures/github-09_sync.png){width=90% fig-align="center"}
 
 Technically, sync executes a **push** of our changes to the repository on GitHub while also executing a **pull** of any changes our collaborators have previously pushed to GitHub. Alongside the branch name in the bottom left you should see how many commits you have to pull and push at any given time.
 
