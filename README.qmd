@@ -160,9 +160,7 @@ If you want to learn more than one of the three languages, and you arguably shou
 
 ## [Quarto]{#sec-quarto}
 
-<!-- - Inline support turn on `positron.quarto.inlineOutput.enabled` or is it default? -->
-
-Much of the code we write for a project can use flat text Python `.py` scripts. However, if we need to produce an output in a format other than code, for example a report, then we should use something else. [Quarto](https://quarto.org) is an **open source publishing system** where we can combine writing along with code and its output. If you've used Jupyter notebooks, Quarto documents will be familiar with designated sections for writing and code.
+Much of the code we write for a project can use flat text Python `.py` scripts. However, if we need to produce an output in a format other than code, for example a report, then we should use [Quarto](https://quarto.org), an **open source publishing system** where we can combine writing along with code and its output. If you've used Jupyter notebooks, Quarto documents will be familiar with designated sections for writing and code.
 
 ![](figures/quarto-01_document.png){width=90% fig-align="center"}
 
@@ -172,36 +170,33 @@ Like in Jupyter notebooks, we can run each of the code blocks individually or al
 
 The most important difference is that the notebook format of a Quarto document is simply a means to an end. Quarto can take whatever we produce within the document and render it into a Word document, PowerPoint presentation, PDF, Revealjs slide deck, interactive dashboard, website, etc. Browse through the [gallery](https://quarto.org/docs/gallery/) to see what sort of things are possible.
 
-The Quarto extension comes pre-installed with Positron. The [project template](https://github.com/marcdotson/project-template) has Quarto documents (e.g., `README.qmd`) used throughout. Whenever you make a change to a Quarto document, render the document (click on Preview or Cmd/Ctrl + Shift + K) into its specified format and a preview of the rendered document will appear in Positron's viewer (in the right pane by default).
+The Quarto extension comes pre-installed with Positron. The [project template](https://github.com/marcdotson/project-template) has Quarto documents (e.g., `README.qmd`) used throughout. Whenever you make a change to a Quarto document, render the document (click on Preview or use Cmd/Ctrl + Shift + K) into its specified format and a preview of the rendered document will appear in Positron's viewer (in the right pane by default).
 
-![](figures/quarto-03_rendered-pdf.png){width=90% fig-align="center"}
+![](figures/quarto-03_qmd-to-pdf.png){width=90% fig-align="center"}
 
-If you are using Python within the Quarto document, Quarto will render the output using the Jupyter kernel in the background. In fact, as needed, a Quarto document can be used in conjunction with a [Jupyter notebook](https://quarto.org/docs/get-started/hello/jupyter.html) to render into all of these different outputs. For example, we can render a Jupyter notebook called `data-analysis.ipynb` into a PDF using the command line with `quarto render data-analysis.ipynb --to typst`.
+If you are using Python within the Quarto document, Quarto will render the output using the Jupyter kernel in the background. In fact, as needed, a Quarto document can be used in conjunction with a [Jupyter notebook](https://quarto.org/docs/get-started/hello/jupyter.html) to render into all of these different outputs. For example, we can render `pydata.ipynb` into a PDF using `quarto render pydata.ipynb --to typst` in the terminal.
 
-The [Quarto documentation](https://quarto.org/docs/guide/) is comprehensive and highly recommended, especially as you adapt work for different formats. The following sections highlight some of the essential features of Quarto documents.
+![](figures/quarto-04_ipynb-to-pdf.png){width=90% fig-align="center"}
+
+Quarto's [documentation](https://quarto.org/docs/guide/) is comprehensive. The following sections highlight some of the essential features of Quarto documents.
 
 ### YAML
 
-The header at the top of any Quarto document is coded in *YAML* (i.e., Yet Another Markup Language), which follows a simple `key: value` syntax. For most Quarto documents in a project repository, you should set `format: gfm`. When you render your Quarto document, it will create a separate markdown document using "GitHub Flavored Markdown" that GitHub can parse. For example, the header for this document is:
+The header of any Quarto document is coded in YAML (i.e., Yet Another Markup Language), which follows a simple `key: value` syntax. For most Quarto documents in a project repository, you should set `format: gfm`. When you render your Quarto document, it will create a separate markdown document using **GitHub Flavored Markdown** that GitHub can parse as HTML.
 
-```
----
-title: "Data Stack"
-format: gfm
----
-```
+![](figures/quarto-05_qmd-to-gfm.png){width=90% fig-align="center"}
 
-If you want to render the document into a PDF, use `format: typst` instead. [Typst](https://quarto.org/docs/output-formats/typst.html) is modern, fast typesetting software for creating PDFs. Typst comes pre-installed with Quarto. The alternative is to [install and use](https://quarto.org/docs/output-formats/pdf-basics.html) a slower and more cumbersome typesetting distribution tied to `format: pdf`.
+To render documents into a PDF, use `format: typst` instead. [Typst](https://quarto.org/docs/output-formats/typst.html) is modern, fast typesetting software for creating PDFs and comes pre-installed with Quarto.
 
 ### Markdown
 
-Quarto documents use [markdown](https://quarto.org/docs/authoring/markdown-basics.html), just like in Jupyter notebooks. Markdown is a simple, generic typesetting syntax. Note that GitHub recognizes this syntax, including in issues and pull requests.
+Quarto documents use [markdown](https://quarto.org/docs/authoring/markdown-basics.html), just like in Jupyter notebooks. Markdown is a simple, generic typesetting syntax. Note that GitHub also recognizes this syntax, including in issues and pull requests.
 
 Sometimes working with markdown alone can be challenging. Positron includes a visual mode you can access inside any Quarto document. The visual mode includes some point-and-click options to help you produce markdown syntax, which can be especially helpful for things like [tables](https://quarto.org/docs/authoring/tables.html) and [citations](https://quarto.org/docs/authoring/citations.html).
 
 ### Code
 
-Quarto allows us to include [code blocks](https://quarto.org/docs/computations/python.html) and output as part of the document. Much like Jupyter notebooks, you can include Julia, Python, and R code as well as C++, Stan, and other code blocks and output. To run Python code only, specify `jupyter: python3` in the header YAML.
+Quarto allows us to include [code blocks](https://quarto.org/docs/computations/python.html) and output as part of the document. Much like Jupyter notebooks, you can include Julia, Python, and R code as well as C++, Stan, and other code blocks and output. To run Python code, specify `jupyter: python3` in the header YAML.
 
 ::: {.callout-note title="Quarto Projects"}
 One quirk of using Quarto is that when you run code in the code blocks vs. render the Quarto document into its specified format, the working directory will be *different*. By default, the folder you have open in the explorer is identified as the working directory for the code you run in the code blocks. However, when you render the Quarto document into its output, Quarto will think that the directory the Quarto document is in is the working directory.
@@ -228,16 +223,24 @@ $$
 
 ## [GitHub]{#sec-github}
 
-<!-- - Update with screenshots from Positron
-- Revise project template reports, **/*.quarto_ipynb_*? -->
+Git is a powerful [version control system](https://peerj.com/preprints/3159v2/). It is the industry standard for software development and has been adopted to provide structure for data analysis as well. GitHub is an online hosting service where each project lives in its own **repository** or repo. Learning to use Git and GitHub not only aids in collaboration, it will ultimately allow you to develop an online portfolio of work.
 
-Git is a powerful [version control system](https://peerj.com/preprints/3159v2/). While it is the industry standard for software development, we can easily adopt this framework to provide structure for any kind of data project. GitHub is an online hosting service where each project lives in its own repository. Learning to use Git and GitHub not only aids in collaboration, it will ultimately allow you to develop an online portfolio of work.
+Get started by [signing up for a GitHub account](https://happygitwithr.com/github-acct#github-acct) using a *professional username* and your student email address and [downloading and installing Git](https://git-scm.com/downloads). You'll also need to introduce yourself to Git by running the following in the terminal.
 
-To get started, you'll need to [register a GitHub account](https://happygitwithr.com/github-acct#github-acct) and install Git [using the command line](https://happygitwithr.com/install-git#install-git) (substituting R references with Python and RStudio with Positron) or [downloading the latest source](https://git-scm.com/downloads). You'll also need to both [introduce yourself to Git](https://happygitwithr.com/hello-git) (using the email associated with your GitHub account and again substituting R references with Python and RStudio with Positron) and then authorize Positron to use your GitHub credentials (which you *should* be prompted to do when first cloning your project repository). Note that when you get a prompt from Positron to use `Git: Fetch` automatically, go ahead and select yes. This will allow your local Git to be aware of updates, including new branches, on GitHub.
+```
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+```
 
-I recommend using my [project template](https://github.com/marcdotson/project-template) to create your project repository. Just click on "Use this template" and create a new repository with a short, lowercase, hyphenated slug as the repository name that's consistent with the project (e.g., advanced-coursework). One person will maintain the repository and have it connected to their account (i.e., the mentor for ASC projects) while others working on the project can be added as collaborators. Anyone with access to the project repository can copy (i.e., *fork*) it to save, maintain, or contribute to if they aren't a collaborator.
+### Project Template
 
-Note that there are certain limitations to the size and type of files that can be hosted (i.e., *pushed* to GitHub). There are also certain things that shouldn't be accessible by the public (e.g., data we are under NDA to access). For these reasons, we have files and folders that are pushed to GitHub and those that are not. Here's how the project repository is organized:
+I recommend using my [project template](https://github.com/marcdotson/project-template) for your project repository. Just click on "Use this template" and create a new repository with a short, lowercase, hyphenated slug as the repository name that's consistent with the project (e.g., advanced-coursework).
+
+![](figures/github-01_project-template.png){width=90% fig-align="center"}
+
+One person will maintain the repository and have it connected to their account (e.g., the mentor for ASC projects) while others working on the project can be added as collaborators. Anyone with access to the project repository can copy (i.e., **fork**) it to save, maintain, or contribute to if they aren't a collaborator.
+
+Note that there are certain limitations to the size and type of files that can be hosted (i.e., **pushed** to GitHub). There are also certain things that shouldn't be accessible by the public (e.g., private data). For these reasons, we have files and folders that are pushed to GitHub and those that are not. Here's how the project repository is organized:
 
 - `/code` Scripts with prefixes (e.g., `01_import-data.py`, `02_clean-data.py`) and functions in `/code/src`.
 - `/data` Simulated and real data, the latter not pushed.
@@ -257,17 +260,21 @@ Note that there are certain limitations to the size and type of files that can b
 - `pyproject.toml` Python project environment configuration file.
 - `uv.lock` Python project environment lockfile.
 
-Any file or folder that begins with a period is hidden (i.e., you won't see it in your OS file explorer by default, but you will see it in the explorer in Positron). The `.gitignore` file is what controls which files and folders are pushed. Note that the [project template](https://github.com/marcdotson/project-template) also includes instructions for using the project environment and has a link to this training.
+Any file or folder that begins with a period is hidden (i.e., you won't see it in your OS file explorer by default, but you will see it in the explorer in Positron). The `.gitignore` file is what controls which files and folders are pushed. Note that the [project template](https://github.com/marcdotson/project-template) also includes instructions for using the project environment and has a link to this training repo.
 
 ### Issues
 
-To stay organized, manage your project by keeping track of tasks using GitHub's issues (see the tab at the top of the project repository on GitHub). There you can have an ongoing conversation and close tasks out when a given issue is completed or resolved. Be sure to tag collaborators you want to see a specific comment (e.g., `@marcdotson`). Think of this as an email thread or chat channel except all of the conversations are in one place, easily searchable, and automatically archived as part of the version control.
+To stay organized, manage your project by keeping track of tasks using GitHub's issues (see the tab at the top of the project repository on GitHub). There you can have an ongoing conversation and close tasks out when a given issue is completed or resolved.
+
+![](figures/github-02_issues.png){width=90% fig-align="center"}
+
+Be sure to tag collaborators you want to see a specific comment (e.g., `@marcdotson`). Think of this as an email thread or chat channel except all of the conversations are in one place, easily searchable, and automatically archived as part of the version control.
 
 ### Clone
 
-Once you are a collaborator on a project repository, you can *clone* it. Cloning simply means you're creating a local copy of the repository, though the clone isn't just a copy of the folder. Git still works in the background keeping track of changes and managing the version control. Using the command palatte in Positron, use the `Git:Clone` command and select the project repository you'd like to clone.
+Once you are a collaborator on a project repository, you can **clone** it. Cloning simply means you're creating a local copy of the repository, though the clone isn't just a copy of the folder. Git still works in the background keeping track of changes and managing the version control. Using the command palatte in Positron, use the `Git: Clone` command and select the project repository you'd like to clone.
 
-![](figures/github_clone.png){width=90% fig-align="center"}
+![](figures/github-03_clone.png){width=90% fig-align="center"}
 
 You only need to clone the project repository one time. Please note that any of the files and folders that aren't pushed to GitHub can be created in your cloned repository without any impact on the repository hosted on GitHub. For example, I typically store PDFs and other related materials that I don't want to (or can't) share in the `/private` folder so that the resources I need are all within the same directory on my computer.
 
@@ -277,13 +284,15 @@ Remember that Git and GitHub are built for software development. Following that 
 
 Every repository has a `main` branch. If this were software, the `main` branch would be the branch that is being used in production. *Never make changes directly to the `main` branch.* You can see which branch you're working in by looking at the bottom left corner in Positron. Assuming the branch you need to work on has already been created, the first thing you should do when starting to work is navigate to the branch you want to work in. Use `Git: Checkout to...` via the command palette to select the correct branch.
 
-### Commit, Push, and Pull
+![](figures/github-04_checkout-to.png){width=90% fig-align="center"}
+
+### Stage, Commit, and Sync
 
 You've identified what you need to work on using issues, cloned the project repository, and made sure you're working on the correct branch. Finally, you can get to work! Then what? Once you've made a number of changes to your cloned project respository, how do you share that with your collaborators? If you click on the source control tab below the explorer (by default in the left pane in Positron) you'll see all of the files you've changed. You first need to *stage* these changes using the plus sign next to the files. You then need to provide a *commit message*. Like the branch names, these should be short and descriptive, like "Created a function to parse text data" or "Cleaned up errors to the final model".
 
-It is the branch names and these commit messages that provide a record of the work we have done. With a descriptive message, you are ready to [*commit*](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_staging-and-committing-code-changes). This is like saving a file, except we can save multiple files all at once associated with the commit message we've written. These changes are now archived as part of the version control on our cloned project repository. To share them with our collaborators, we need to *push* them to the repository on GitHub. Similarly, to get changes others have pushed, we need to *pull* them from the repository on GitHub. In Positron, this is often summarized as one step called *sync*, which is pulling and then pushing sequentially.
+![](figures/github-05_stage-commit-sync.png){width=90% fig-align="center"}
 
-![](figures/github_daily-work.png){width=90% fig-align="center"}
+It is the branch names and these commit messages that provide a record of the work we have done. With a descriptive message, you are ready to [*commit*](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_staging-and-committing-code-changes). This is like saving a file, except we can save multiple files all at once associated with the commit message we've written. These changes are now archived as part of the version control on our cloned project repository. To share them with our collaborators, we need to *push* them to the repository on GitHub. Similarly, to get changes others have pushed, we need to *pull* them from the repository on GitHub. In Positron, this is often summarized as one step called *sync*, which is pulling and then pushing sequentially.
 
 To summarize, your daily work in Positron will look like this:
 
