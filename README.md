@@ -22,12 +22,13 @@ The data stack consists of:
 
 Every modern data stack also includes AI tools. All Utah State students
 have [access to a specific set](https://www.usu.edu/ai/tools). While AI
-can help learning and productivity (e.g., drafting and debugging code),
-it can be harmful when we use it to replace rather than supplement
-thinking and decision-making—especially when we don’t know enough about
-a topic to evaluate what the AI generates. If you use AI tools, be
-thoughtful and transparent, including reviewing what the AI generates
-and citing the AI tool you use.
+can help learning and productivity (e.g., drafting and debugging code,
+explaining concepts in new ways, practicing for interviews), it can be
+harmful when we use it to replace rather than supplement thinking and
+decision-making—especially when we don’t know enough about a topic to
+evaluate what the AI generates. If you use AI tools, be thoughtful and
+transparent, including reviewing what the AI generates and citing the AI
+tool you use.
 
 ## <span id="sec-positron">Positron</span>
 
